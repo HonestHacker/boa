@@ -318,7 +318,7 @@ public class Weapon : Item, IGameEventHandler<OnReloadEvent>, IGameEventHandler<
 
 			if ( tr.Hitbox is not null && tr.Hitbox.Tags.Has( "head" ) && HeadShotEnabled )
 			{
-				dmg *= 2;
+				dmg = (int)Math.Round(1.5f * dmg);
 				IsHeadShot = true;
 			}
 

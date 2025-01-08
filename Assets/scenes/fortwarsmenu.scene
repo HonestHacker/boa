@@ -10,10 +10,19 @@
         {
           "__type": "Sandbox.SceneInformation",
           "__guid": "96db79d6-6f4a-4b3b-bf2a-59017508ca11",
+          "Author": null,
           "Changes": "",
           "Description": "",
+          "Group": null,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "SceneTags": "",
-          "Title": "dead4leftmenurewrite"
+          "Title": "dead4leftmenurewrite",
+          "Version": null
         }
       ]
     },
@@ -33,6 +42,12 @@
           "ClearFlags": "All",
           "FieldOfView": 60,
           "IsMainCamera": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Orthographic": false,
           "OrthographicHeight": 1204,
           "Priority": 1,
@@ -50,6 +65,12 @@
           "DenoiseMode": "Temporal",
           "FalloffRange": 0.75,
           "Intensity": 0.15,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Quality": "High",
           "Radius": 128,
           "ThinCompensation": 0
@@ -65,6 +86,12 @@
           "MaximumExposure": 2.96,
           "MinimumExposure": 1,
           "Mode": "Legacy",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Rate": 1
         },
         {
@@ -75,6 +102,12 @@
           "FocalDistance": 200,
           "FocusRange": 500,
           "FrontBlur": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "QualityLevel": "High"
         },
         {
@@ -111,6 +144,12 @@
             }
           ],
           "Mode": "Additive",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Strength": 1,
           "Threshold": 0.5,
           "ThresholdWidth": 0
@@ -118,6 +157,12 @@
         {
           "__type": "Sandbox.Sharpen",
           "__guid": "38a3877d-7d11-4267-87ec-031ac2344244",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Scale": 0.2
         }
       ]
@@ -132,6 +177,12 @@
           "__type": "Sandbox.ScreenPanel",
           "__guid": "430b1986-317a-48c0-8a89-9ff6dc7ab345",
           "AutoScreenScale": true,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Opacity": 1,
           "Scale": 1,
           "ScaleStrategy": "ConsistentHeight",
@@ -140,7 +191,13 @@
         {
           "__type": "MainMenu",
           "__guid": "ac0ca2f8-e1f1-416c-81a5-d169bcd5f741",
-          "MainScene": "scenes/easter.scene"
+          "MainScene": "scenes/easter.scene",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         }
       ]
     },
@@ -157,6 +214,12 @@
           "EnableCollision": true,
           "MapName": "apetavern.fw_easter",
           "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "OnMapLoaded": null,
           "OnMapUnloaded": null,
           "UseMapFromLaunch": false
@@ -174,9 +237,19 @@
           "__type": "Sandbox.SoundscapeTrigger",
           "__guid": "963c67e9-b523-4910-8a62-203274c7a820",
           "BoxSize": "50,50,50",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Radius": 500,
           "Soundscape": "soundscapes/field/field_day_breeze_01a.sndscape",
           "StayActiveOnExit": true,
+          "TargetMixer": {
+            "Name": "unknown",
+            "Id": "00000000-0000-0000-0000-000000000000"
+          },
           "Type": "Point"
         }
       ]
@@ -192,11 +265,21 @@
         {
           "__type": "Sandbox.SkinnedModelRenderer",
           "__guid": "b54905e8-017d-43be-b835-95cbd433ebe1",
+          "AnimationGraph": null,
           "BodyGroups": 341,
+          "BoneMergeTarget": null,
           "CreateAttachments": false,
           "CreateBoneObjects": false,
+          "MaterialGroup": null,
+          "MaterialOverride": null,
           "Model": "models/citizen/citizen.vmdl",
           "Morphs": {},
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Parameters": {
             "bools": {
               "b_long_idle": true
@@ -226,7 +309,13 @@
         {
           "__type": "LocalPlayerDresser",
           "__guid": "6e36e25b-5680-49c3-a425-f3bd0e93300f",
-          "MungusModel": "terryisdead/citizen_terryisdead.vmdl"
+          "MungusModel": "terryisdead/citizen_terryisdead.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null
         },
         {
           "__type": "Sandbox.ModelPhysics",
@@ -241,6 +330,12 @@
           },
           "Model": "models/citizen/citizen.vmdl",
           "MotionEnabled": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Renderer": {
             "_type": "component",
             "component_id": "b54905e8-017d-43be-b835-95cbd433ebe1",
@@ -252,15 +347,24 @@
         {
           "__type": "HealthComponent",
           "__guid": "f5cdcc85-42e3-47df-b13f-daf8d54faa4e",
+          "AnimHelper": null,
           "AutohealDelay": 5,
           "AutohealEnabled": false,
           "AutohealRate": 1,
           "BloodEnabled": false,
+          "BloodPrefab": null,
+          "CanTakeDamage": null,
           "Health": 125,
           "HitAnimation": false,
           "HitAnimationName": "hit",
           "IsDead": false,
           "MaxHealth": 100,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "OnDeathAction": {
             "__version": 8,
             "__guid": "27aa4f0c-f135-49af-b796-a450882e16a9",
@@ -327,7 +431,8 @@
             }
           },
           "PlayOnLocal": false,
-          "SpawnDamageIndicator": true
+          "SpawnDamageIndicator": true,
+          "Target": null
         }
       ]
     },
@@ -346,9 +451,16 @@
           "Attenuation": 1,
           "ConeInner": 15,
           "ConeOuter": 45,
+          "Cookie": null,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.68837,0.68837,0.68837,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Radius": 500,
           "Shadows": false
         }
@@ -369,9 +481,16 @@
           "Attenuation": 1,
           "ConeInner": 15,
           "ConeOuter": 45,
+          "Cookie": null,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.68837,0.68837,0.68837,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Radius": 500,
           "Shadows": false
         }
@@ -392,9 +511,16 @@
           "Attenuation": 1,
           "ConeInner": 15,
           "ConeOuter": 45,
+          "Cookie": null,
           "FogMode": "Enabled",
           "FogStrength": 1,
           "LightColor": "0.91373,0.98039,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
           "Radius": 500,
           "Shadows": false
         }
@@ -414,7 +540,16 @@
           "BodyGroups": 18446744073709551615,
           "Health": 0,
           "IsStatic": false,
+          "MaterialGroup": null,
           "Model": "models/blocks/wood/fw_1x1x1.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
           "StartAsleep": false,
           "Tint": "1,1,1,1"
         }
@@ -436,6 +571,14 @@
           "IsStatic": false,
           "MaterialGroup": "default",
           "Model": "models/blocks/steel/fw_1x2x1.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
           "StartAsleep": false,
           "Tint": "1,1,1,1"
         }
@@ -457,6 +600,14 @@
           "IsStatic": false,
           "MaterialGroup": "red",
           "Model": "models/blocks/wood/fw_1x2x1.vmdl",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnPropBreak": null,
+          "OnPropTakeDamage": null,
           "StartAsleep": false,
           "Tint": "1,1,1,1"
         }

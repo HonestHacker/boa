@@ -1,8 +1,8 @@
 {
-  "Name": "Sniper",
+  "Name": "Rifle",
   "WeaponPrefab": {
     "_type": "gameobject",
-    "go": "132bd3cc-7112-414e-82ed-24e030459c23"
+    "prefab": "prefabs/weapons/rifle.prefab"
   },
   "__references": [],
   "__version": 0

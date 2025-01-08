@@ -5,7 +5,7 @@
   "WalkSpeed": 300,
   "RunSpeed": 400,
   "Health": 100,
-  "Hidden": false,
+  "Hidden": true,
   "Order": 0,
   "SecondaryEnabled": true,
   "SecondaryWeaponData": "weapondatas/pistol.weapons",
