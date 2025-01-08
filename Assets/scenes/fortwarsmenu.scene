@@ -354,7 +354,7 @@
           "BloodEnabled": false,
           "BloodPrefab": null,
           "CanTakeDamage": null,
-          "Health": 125,
+          "Health": 115,
           "HitAnimation": false,
           "HitAnimationName": "hit",
           "IsDead": false,

@@ -19,7 +19,6 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 	[Property, Sync, Category( "Stats" )] public int RunSpeed { get; set; } = 450;
 	[Property, Sync, Category( "Stats" ), ReadOnly] public int Kills { get; set; }
 	[Property, Sync, Category( "Stats" ), ReadOnly] public int Deaths { get; set; }
-
 	//Saved properties
 	[Sync] public int StartingWalkSpeed { get; set; } = 300;
 	[Sync] public int StartingRunSpeed { get; set; } = 450;
@@ -29,6 +28,8 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 	//Required components
 	[RequireComponent, Sync] public HealthComponent HealthComponent { get; set; }
 	[RequireComponent, Sync] public TeamComponent TeamComponent { get; set; }
+
+
 
 	[Sync, Change( nameof( OnHoldTypeChanged ) )] public CitizenAnimationHelper.HoldTypes HoldType { get; set; }
 	[Sync] public Transform RespawnPoint { get; set; }
@@ -75,6 +76,13 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 	[Property] public int WoodPropsLeft { get; set; } = 60;
 	[Property] public int MetalPropsLeft { get; set; } = 30;
 	[Property] public int SteelPropsLeft { get; set; } = 15;
+
+	/// <summary> How much velocity is redirected by air strafing. </summary>
+	public const float AIR_TURN = 1000f;
+	/// <summary> How much acceleration is gained by air strafing. </summary>
+	public const float AIR_TURN_ACCEL = 840f;
+	/// <summary> The amount you can move in the air, clamped by top/current speed. </summary>
+	public const float AIR_MOVE_ACCEL = 1500f;
 
 	public bool IsADS { get; set; } = false;
 
@@ -200,12 +208,19 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 				.IgnoreGameObject( GameObject )
 				.Run();
 
+			Log.Info( tr.ToString() );
+
 			return !tr.Hit;
 		}
 
 		if ( !wishCrouch )
 		{
-			if ( !canUnCrouch() ) return;
+			if ( !canUnCrouch() )
+			{
+				Log.Info( "Cannot uncrouch" );
+				return;
+			}
+			
 
 			shrimpleCharacterController.TraceHeight = 64;
 			IsCrouching = wishCrouch;
@@ -225,7 +240,7 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 		if ( IsCrouching )
 			return 100;
 
-		return (Input.Down( "run" ) ? RunSpeed : WalkSpeed) * SpeedMult;
+		return (!Input.Down( "walk" ) ? RunSpeed : WalkSpeed) * SpeedMult;
 	}
 
 	public void Move()
@@ -241,7 +256,7 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 		var sprintSpeed = MathX.Lerp( WalkSpeed, GetMoveSpeed(), sprintingCoefficient );
 
 		var isCrouching = Input.Down( "duck" );
-		var wishSpeed = isCrouching ? 175 : sprintSpeed;
+		var wishSpeed = isCrouching ? WalkSpeed : sprintSpeed;
 
 		wishSpeed = IsADS ? 160 : wishSpeed;
 
@@ -257,15 +272,52 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 			airCrouchCount = 0;
 		}
 
-		if ( Input.Pressed( "jump" ) && shrimpleCharacterController.IsOnGround )
-		{
-			shrimpleCharacterController.Punch( Vector3.Up * 350 );
-			GameObject.Dispatch( new JumpEvent() );
-			CameraController.Instance.RecoilFire( new Vector3( 10, 0, 0 ) );
-		}
-
 		shrimpleCharacterController.WishVelocity = WishVelocity;
 
+		if ( shrimpleCharacterController.IsOnGround )
+		{
+			if ( Input.Down( "jump" ) )
+			{
+				shrimpleCharacterController.Velocity = shrimpleCharacterController.Velocity.WithZ( 0f );
+				shrimpleCharacterController.Punch( Vector3.Up * 350 );
+			}
+		}
+		else
+		{
+			// Poor man's Source engine air strafing.
+			var flatVel = shrimpleCharacterController.Velocity.WithZ( 0f );
+			var wishVel = shrimpleCharacterController.WishVelocity.WithZ( 0f );
+			var wishMove = (wishVel / RunSpeed).ClampLength( 0, 1f );
+
+			// Must be inputting.
+			if ( !wishMove.AlmostEqual( 0f ) )
+			{
+				var velFwd = flatVel.Normal;
+				var velRight = velFwd.RotateAround( Vector3.Zero, Rotation.FromYaw( 90f ) );
+
+				var wishDir = wishVel.Normal;
+				var wishVelFwdDot = MathF.Abs( wishDir.Dot( velFwd ) );
+				// var wishVelRightDot = MathF.Abs( wishDir.Dot( velRight ) );
+				var turnDot = 1f - wishVelFwdDot;
+
+				// Redirect from turning.
+				var airTurn = wishMove * turnDot * AIR_TURN * Time.Delta * Preferences.Sensitivity;
+				flatVel = (flatVel + airTurn).Normal * flatVel.Length;
+
+				// Add velocity from turning.
+				var turnAccel = wishMove * turnDot * AIR_TURN_ACCEL;
+				flatVel += turnAccel * Time.Delta;
+			}
+
+			// Custom air movement.
+			var airMove = wishMove * AIR_MOVE_ACCEL * Time.Delta;
+			var maxSpeed = MathF.Max( wishSpeed, flatVel.Length );
+
+			flatVel = (flatVel + airMove).ClampLength( 0f, maxSpeed );
+
+			// Only affect horizontal velocity.
+			shrimpleCharacterController.Velocity = flatVel.WithZ( shrimpleCharacterController.Velocity.z );
+		}
 		shrimpleCharacterController.Move();
 	}
 

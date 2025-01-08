@@ -24,7 +24,11 @@
     "CsProjName": "",
     "StartupScene": "scenes/fortwarsmenu.scene",
     "LaunchMode": "Normal",
-    "ControlModes": {},
+    "ControlModes": {
+      "Keyboard": false,
+      "VR": false,
+      "Gamepad": false
+    },
     "DedicatedServerStartupScene": "scenes/dedicatedserverscene.scene",
     "ParentPackage": ""
   }
