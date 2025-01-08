@@ -1,0 +1,31 @@
+{
+  "Title": "Brotherhood of Arms",
+  "Type": "game",
+  "Org": "projectuw",
+  "Ident": "boa",
+  "Schema": 1,
+  "IncludeSourceFiles": false,
+  "Resources": "\n*.mp3\n*.wav\n*.png\n*.ttf\n*.jpg",
+  "PackageReferences": [],
+  "EditorReferences": null,
+  "IsWhitelistDisabled": false,
+  "Metadata": {
+    "MaxPlayers": 64,
+    "MinPlayers": 1,
+    "TickRate": 50,
+    "GameNetworkType": "Multiplayer",
+    "MapSelect": "Unrestricted",
+    "MapList": [
+      "facepunch.flatgrass"
+    ],
+    "RankType": "None",
+    "PerMapRanking": false,
+    "LeaderboardType": "None",
+    "CsProjName": "",
+    "StartupScene": "scenes/fortwarsmenu.scene",
+    "LaunchMode": "Normal",
+    "ControlModes": {},
+    "DedicatedServerStartupScene": "scenes/dedicatedserverscene.scene",
+    "ParentPackage": ""
+  }
+}

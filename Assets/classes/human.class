@@ -1,0 +1,20 @@
+{
+  "WeaponData": "weapondatas/mp5.weapons",
+  "ClassName": "Light",
+  "ClassDescription": "This is the default class. It is better to not underestimate the power of a pistol. Humans are quick on their feet. ",
+  "WalkSpeed": 300,
+  "RunSpeed": 400,
+  "Health": 100,
+  "Hidden": false,
+  "Order": 0,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/pistol.weapons",
+  "ClassModelEnabled": true,
+  "ClassModel": "models/weapons/sbox_smg_mp5/w_mp5.vmdl",
+  "HoldType": "Rifle",
+  "Offset": "0,0,-4.600007",
+  "__references": [
+    "facepunch.w_mp5#33703"
+  ],
+  "__version": 0
+}

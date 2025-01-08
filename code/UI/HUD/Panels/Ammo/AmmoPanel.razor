@@ -1,0 +1,23 @@
+﻿@using Sandbox.UI;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+    @{
+        if (!Item.IsValid() || Item.UsesAmmo == false)
+            return;
+    }
+    <div class="holder" style="background-color: @HUD.GetColor().Hex;">
+    <label>@(Item.Ammo)</label>
+    <label>/@(Item.MaxAmmo)</label>
+    </div>
+</root>
+
+@code{
+	public Item Item { get; set; }
+
+	protected override int BuildHash()
+	{
+        return System.HashCode.Combine( Item?.Ammo, Item?.UsesAmmo );
+	}
+}

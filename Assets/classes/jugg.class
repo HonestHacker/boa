@@ -1,0 +1,20 @@
+{
+  "WeaponData": "weapondatas/shotgun.weapons",
+  "ClassName": "Heavy",
+  "ClassDescription": "This class is the tankiest of them all, weilding a shotgun. This defensive class is best used in close quarters, and is great for guarding a base. ",
+  "WalkSpeed": 200,
+  "RunSpeed": 300,
+  "Health": 150,
+  "Hidden": false,
+  "Order": 2,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/pistol.weapons",
+  "ClassModelEnabled": true,
+  "ClassModel": "models/weapons/sbox_shotgun_spaghellim4/w_spaghellim4.vmdl",
+  "HoldType": "Shotgun",
+  "Offset": "0,0,-5.799997",
+  "__references": [
+    "facepunch.w_spaghellim4#58057"
+  ],
+  "__version": 0
+}

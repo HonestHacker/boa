@@ -1,0 +1,11 @@
+{
+  "WeaponData": "weapondatas/sniper.weapons",
+  "ClassName": "Sniper",
+  "ClassDescription": "Take out enemies from a distance",
+  "WalkSpeed": 200,
+  "RunSpeed": 250,
+  "Health": 100,
+  "Hidden": true,
+  "__references": [],
+  "__version": 0
+}

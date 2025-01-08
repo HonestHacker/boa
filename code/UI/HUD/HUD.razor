@@ -1,0 +1,124 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@using Sandbox.Events;
+@inherits PanelComponent
+@implements IGameEventHandler<PlayerDamage>
+
+@{
+	var gs = GameSystem.Instance;
+
+	if ( !gs.IsValid() ) 
+		return;
+}
+
+<root>
+	<InventoryPanel />
+
+    <PropGunUI/>
+
+	<TeamProgress />
+	
+	<div class="healthholder">
+		<ResourcePanel />
+		<HealthPanel @ref="HealthPanel" />
+	</div>
+
+	<Scoreboard/>
+
+	<Timer />
+
+	<PropRadialMenu />
+
+	<PropHealth />
+
+	<CTFPanel />
+</root>
+
+@code
+{
+    public Panel MaxProps { get; set; }
+    public HealthPanel HealthPanel { get; set; }
+    public bool ShowCrosshair { get; set; } = true;
+    public static HUD Instance { get; set; }
+
+    [Property, ImageAssetPath] string Crosshair { get; set; }
+	[Property, ImageAssetPath] public string HitMarker { get; set; }
+	[Property] private string lastCrosshair { get; set; }
+
+	protected override void OnStart()
+	{
+		Instance = this;
+
+		lastCrosshair = Crosshair;
+	}
+
+	void IGameEventHandler<PlayerDamage>.OnGameEvent( PlayerDamage eventArgs )
+	{
+		if ( HealthPanel.IsValid() )
+		{
+			HealthPanel.NumberPanel?.FlashClass( "hit", 0.5f );
+		}
+	}
+
+	public void FlashHitMarker()
+	{
+		Crosshair = HitMarker;
+
+		Invoke( 0.2f, () =>
+		{
+			Crosshair = lastCrosshair;
+		} );
+	}
+
+    // Pallete located here: https://colorhunt.co/palette/0d92f477cdfff95454c62e2e
+
+	public static Color GetColor()
+	{
+		return GetColor( FWPlayerController.Local?.TeamComponent?.Team ?? Team.None );
+	}
+
+	public static Color GetColor( Team team )
+	{
+		switch ( team )
+		{
+			case Team.Red:
+				return new Color(198, 46, 46);
+			case Team.Blue:
+				return new Color(13, 146, 244);
+			case Team.Green:
+				return Color.Green;
+			case Team.Yellow:
+				return Color.Yellow;
+			default:
+				return "#1a1a1b";
+		}
+	}
+
+	[Rpc.Broadcast]
+	public static void FlashMapVoting()
+	{
+		var hud = Instance;
+
+		if ( !hud.IsValid() )
+			return;
+
+		hud.Panel?.AddChild( new MapVoting() );
+
+		hud.Invoke( 30, () => {
+			if ( hud.Panel.IsValid() && hud.IsValid() )
+			{
+				hud?.Panel?.ChildrenOfType<MapVoting>()?.ToList()?.ForEach( x => x.Delete() );
+				hud?.Panel?.ChildrenOfType<MiniMapVoting>()?.ToList()?.ForEach( x => x.Delete() );
+			}
+		});
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine( ShowCrosshair, Crosshair );
+	}
+}

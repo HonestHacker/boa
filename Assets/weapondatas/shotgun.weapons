@@ -1,0 +1,9 @@
+{
+  "Name": "Shotgun",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/weapons/shotgun_dead4left.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

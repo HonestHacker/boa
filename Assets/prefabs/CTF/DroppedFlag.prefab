@@ -1,0 +1,201 @@
+{
+  "RootObject": {
+    "__guid": "c0da0947-85bc-416c-975d-50a1621af49d",
+    "Flags": 0,
+    "Name": "droppedflag",
+    "Tags": "flag",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "Components": [
+      {
+        "__type": "DroppedFlag",
+        "__guid": "17a2ee5f-7bf0-4e23-94cb-b0005dffbf3c",
+        "FlagRenderer": {
+          "_type": "component",
+          "component_id": "003178cc-678b-4ff9-ac84-23fa9a11ff9b",
+          "go": "c0da0947-85bc-416c-975d-50a1621af49d",
+          "component_type": "SkinnedModelRenderer"
+        },
+        "Marker": {
+          "_type": "component",
+          "component_id": "378ef75d-1759-493c-9640-9d38cc9f4bc0",
+          "go": "bed82358-1755-437e-867d-0896a5d0524a",
+          "component_type": "NavMarker"
+        },
+        "TeamFlag": "Red"
+      },
+      {
+        "__type": "Sandbox.HighlightOutline",
+        "__guid": "d80e0ad9-48e3-416d-8723-ec0bf3dd6f2c",
+        "__enabled": false,
+        "Color": "1,1,1,1",
+        "InsideColor": "0,0,0,0",
+        "InsideObscuredColor": "0,0,0,0",
+        "ObscuredColor": "0,0,0,0.4",
+        "Width": 0.25
+      },
+      {
+        "__type": "Sandbox.BoxCollider",
+        "__guid": "5b5a7277-b07f-43e2-8ea0-9e4f654bc166",
+        "Center": "0,35.00007,73.50002",
+        "IsTrigger": true,
+        "Scale": "37.90017,96.10007,159.2",
+        "Static": false,
+        "SurfaceVelocity": "0,0,0"
+      },
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "003178cc-678b-4ff9-ac84-23fa9a11ff9b",
+        "AnimationGraph": "animgraphs/flag.vanmgrph",
+        "BodyGroups": 18446744073709551615,
+        "CreateAttachments": false,
+        "CreateBoneObjects": false,
+        "Model": "models/flag_blue/flag_blue.vmdl",
+        "Morphs": {},
+        "Parameters": {
+          "bools": {},
+          "ints": {},
+          "floats": {},
+          "vectors": {},
+          "rotations": {}
+        },
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RenderType": "On",
+        "Sequence": {
+          "Name": null
+        },
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "01cc2b1d-41d2-4ed5-b56b-ae08d09dbbe9",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "X": true,
+          "Y": true,
+          "Z": false,
+          "Pitch": true,
+          "Yaw": true,
+          "Roll": true
+        },
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "2a4eedb7-4ab4-443e-b5a1-06f984bffac9",
+        "IsTrigger": false,
+        "Model": "models/flag_blue/flag_blue.vmdl",
+        "Static": false,
+        "SurfaceVelocity": "0,0,0"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "bed82358-1755-437e-867d-0896a5d0524a",
+        "Flags": 0,
+        "Name": "NavMarker",
+        "Position": "0,32,168",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "NavMarker",
+            "__guid": "378ef75d-1759-493c-9640-9d38cc9f4bc0",
+            "DrawDistance": false,
+            "DrawOffScreen": false,
+            "Scale": 1.25,
+            "Text": "FLAG",
+            "Tint": "1,1,1,1"
+          }
+        ]
+      },
+      {
+        "__guid": "1701254c-d714-4154-a162-7acce9e0750b",
+        "Flags": 2048,
+        "Name": "Camera",
+        "Tags": "maincamera",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "Sandbox.CameraComponent",
+            "__guid": "42b28e9b-0df2-4313-aef5-da6f26747f3b",
+            "BackgroundColor": "0.33333,0.46275,0.52157,1",
+            "ClearFlags": "All",
+            "FieldOfView": 60,
+            "IsMainCamera": true,
+            "Orthographic": false,
+            "OrthographicHeight": 1204,
+            "Priority": 1,
+            "RenderExcludeTags": "",
+            "RenderTags": "",
+            "TargetEye": "None",
+            "Viewport": "0,0,1,1",
+            "ZFar": 10000,
+            "ZNear": 10
+          },
+          {
+            "__type": "Sandbox.Highlight",
+            "__guid": "e5406f6c-cf80-4c78-bee3-8071b0fe0d4a"
+          }
+        ]
+      }
+    ],
+    "__variables": [
+      {
+        "Id": "Team Flag",
+        "Title": "Team Flag",
+        "Description": null,
+        "Group": null,
+        "Order": 0,
+        "Targets": [
+          {
+            "Id": "17a2ee5f-7bf0-4e23-94cb-b0005dffbf3c",
+            "Property": "TeamFlag"
+          }
+        ]
+      }
+    ],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

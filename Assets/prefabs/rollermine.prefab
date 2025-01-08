@@ -1,0 +1,227 @@
+{
+  "RootObject": {
+    "__guid": "39ef8517-7e7e-45e6-b649-a5a0aa4cdedd",
+    "Flags": 0,
+    "Name": "rollermine",
+    "Tags": "rollermine,light_point,light",
+    "Enabled": true,
+    "NetworkMode": 1,
+    "NetworkOrphaned": 3,
+    "OwnerTransfer": 0,
+    "Components": [
+      {
+        "__type": "Sandbox.SkinnedModelRenderer",
+        "__guid": "f8b32643-7800-458e-add2-00f12fea5a3c",
+        "BodyGroups": 18446744073709551615,
+        "CreateAttachments": false,
+        "CreateBoneObjects": false,
+        "Model": "models/rollermine.vmdl",
+        "Morphs": {},
+        "Parameters": {
+          "bools": {},
+          "ints": {},
+          "floats": {},
+          "vectors": {},
+          "rotations": {}
+        },
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "RenderType": "On",
+        "Sequence": {
+          "Name": null
+        },
+        "Tint": "1,1,1,1",
+        "UseAnimGraph": true
+      },
+      {
+        "__type": "Sandbox.ModelCollider",
+        "__guid": "400a1e24-2b5b-45c7-a0fa-2ef9948e3899",
+        "IsTrigger": false,
+        "Model": "models/rollermine.vmdl",
+        "Static": false,
+        "SurfaceVelocity": "0,0,0"
+      },
+      {
+        "__type": "Sandbox.Rigidbody",
+        "__guid": "25e96918-402a-43e9-88f4-7fcf220fb16b",
+        "AngularDamping": 0,
+        "Gravity": true,
+        "LinearDamping": 0,
+        "Locking": {
+          "X": false,
+          "Y": false,
+          "Z": false,
+          "Pitch": false,
+          "Yaw": false,
+          "Roll": false
+        },
+        "MassCenterOverride": "0,0,0",
+        "MassOverride": 0,
+        "MotionEnabled": true,
+        "OverrideMassCenter": false,
+        "RigidbodyFlags": 0,
+        "StartAsleep": false
+      },
+      {
+        "__type": "FortwarsProp",
+        "__guid": "f3202565-7b00-4282-adc7-46297ebc4923",
+        "CanKill": true,
+        "CollisionThreshold": 300,
+        "Divisor": 20,
+        "Health": 100,
+        "Invincible": true,
+        "MaxHealth": 100,
+        "Team": "None"
+      },
+      {
+        "__type": "Sandbox.HighlightOutline",
+        "__guid": "2c350709-6574-4bd9-868d-e0574e5fdd62",
+        "Color": "0.4,0.93,1,1",
+        "InsideColor": "0,0,0,0",
+        "InsideObscuredColor": "0.1921,0.47846,0.51628,0.23",
+        "ObscuredColor": "0.4,0.93,1,0.36",
+        "Width": 0.54999995
+      },
+      {
+        "__type": "Sandbox.TrailRenderer",
+        "__guid": "de1bc7e9-a6c8-4248-ae88-e6c3c740281d",
+        "BlendMode": "Normal",
+        "CastShadows": false,
+        "Color": {
+          "blend": "Linear",
+          "color": [
+            {
+              "t": 0.5,
+              "c": "0,1,1,1"
+            }
+          ],
+          "alpha": []
+        },
+        "Emitting": true,
+        "Face": "Camera",
+        "LifeTime": 0.2,
+        "MaxPoints": 64,
+        "Opaque": true,
+        "PointDistance": 8,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "Texturing": {
+          "Texture": null,
+          "WorldSpace": true,
+          "UnitsPerTexture": 10,
+          "Scale": 1,
+          "Offset": 0,
+          "Scroll": 0
+        },
+        "Width": [
+          {
+            "x": 0.67410713,
+            "y": 1,
+            "in": 0,
+            "out": 0,
+            "mode": "Mirrored"
+          },
+          {
+            "x": 1,
+            "y": 0.021276595,
+            "in": 3.684211,
+            "out": -3.684211,
+            "mode": "Mirrored"
+          }
+        ],
+        "Wireframe": false
+      },
+      {
+        "__type": "Sandbox.PointLight",
+        "__guid": "71d72345-f061-44f1-9f54-cf24f1094d95",
+        "Attenuation": 10,
+        "FogMode": "Enabled",
+        "FogStrength": 1,
+        "LightColor": "0.13953,0.79922,1,1",
+        "Radius": 30,
+        "Shadows": false
+      },
+      {
+        "__type": "RollerMine",
+        "__guid": "95219195-d35e-449d-88c1-a0442c8298dd",
+        "Marker": {
+          "_type": "component",
+          "component_id": "be909ae1-5503-4f38-9a33-ba758f82d670",
+          "go": "a3b3eb2c-c60e-4696-a25f-86c31e1621a5",
+          "component_type": "NavMarker"
+        },
+        "Renderer": {
+          "_type": "component",
+          "component_id": "f8b32643-7800-458e-add2-00f12fea5a3c",
+          "go": "39ef8517-7e7e-45e6-b649-a5a0aa4cdedd",
+          "component_type": "SkinnedModelRenderer"
+        }
+      },
+      {
+        "__type": "GameModeObject",
+        "__guid": "e4e0769e-fe9b-4321-8eb2-b4669fed4ebc",
+        "Type": "Classic, RollermineWars, Dodgeball"
+      }
+    ],
+    "Children": [
+      {
+        "__guid": "a3b3eb2c-c60e-4696-a25f-86c31e1621a5",
+        "Flags": 0,
+        "Name": "Navmarker",
+        "Enabled": true,
+        "Components": [
+          {
+            "__type": "NavMarker",
+            "__guid": "be909ae1-5503-4f38-9a33-ba758f82d670",
+            "DrawDistance": false,
+            "DrawOffScreen": true,
+            "Scale": 1,
+            "Text": "OBJ",
+            "Tint": "1,1,1,0.65"
+          }
+        ]
+      }
+    ],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": true,
+  "MenuPath": "Fortwars/Rollermine",
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [
+    "igrium.rollermine-model#19481"
+  ],
+  "__version": 1
+}

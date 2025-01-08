@@ -1,0 +1,39 @@
+@import "/UI/HUD/HUD.razor.scss";
+
+HealthPanel {
+    width: 100%;
+    align-items: center;
+    height: 85px;
+    filter: drop-shadow( 0 0 10px rgba( black, 0.7 ) );
+    flex-shrink: 0;
+
+    .team {
+        padding: 4px 8px;
+        border-radius: 4 4 4 4;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: $primary;
+        width: 60%;
+        height: 100%;
+    }
+
+    .number {
+        width: 100%;
+        padding: 4px 12px;
+        border-radius: 4 4 4 4;
+        font-size: 40px;
+        font-weight: bold;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+        flex-shrink: 0;
+        background-color: $primary;
+        transition: background-color 0.2s ease-out;
+
+        &.hit {
+            background-color: rgb(90, 2, 2);
+        }
+    }
+}

@@ -1,0 +1,82 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Threading.Tasks;
+@using System;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	@{
+        var gs = GameSystem.Instance;
+        var round = GameMode.ActiveRound;
+
+		if (!gs.IsValid())
+			return;
+	}
+
+	<div class="status">@GetStateText()</div>
+    @if (round.IsValid() && round.Time) {
+	<div class="time">
+		<div class="text">@FormatedTimer()</div>
+	</div>
+    }
+	else if ( gs.GameState != GameSystem.GameStates.S_ACTIVE )
+	{
+		<div class="time">
+			<div class="text">@FormatedTimer()</div>
+		</div>
+	}
+</root>
+
+@code
+{
+    public string GetStateText()
+    {
+        var gs = GameSystem.Instance;
+        if (gs.GameState == GameSystem.GameStates.S_WAITING)
+            return "Waiting for players";
+		else if (gs.GameState == GameSystem.GameStates.S_VOTING)
+			return "Voting";
+        else if (gs.GameState == GameSystem.GameStates.S_END)
+            return "Game Over!";
+
+        return GameMode.ActiveRound.Name;
+    }
+
+    public float GetTime()
+    {
+        var gs = Scene.GetAll<GameSystem>().FirstOrDefault();
+        var round = GameMode.ActiveRound;
+
+		if (gs.GameState == GameSystem.GameStates.S_WAITING)
+		{
+			return gs.StateSwitch;
+		}
+		else if (gs.GameState == GameSystem.GameStates.S_END)
+		{
+			return gs.StateSwitch - 5;
+		}
+		else if (gs.GameState == GameSystem.GameStates.S_VOTING)
+		{
+			return gs.StateSwitch - 30;
+		}
+        else if (round.IsValid())
+        {
+            //TODO: Fix this
+            var remainingTime = round.RoundTimer;
+            return remainingTime;
+        }
+
+        return 0;
+    }
+
+    public string FormatedTimer()
+    {
+        return $"{TimeSpan.FromSeconds(GetTime()):mm\\:ss}";
+    }
+
+    protected override int BuildHash()
+    {
+        return System.HashCode.Combine(GetTime(), GameMode.ActiveRound);
+	}
+}

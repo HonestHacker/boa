@@ -1,0 +1,22 @@
+{
+  "DisplayName": "Sentry Gun",
+  "Hidden": true,
+  "Cost": 100,
+  "Max": 3,
+  "PrefabOverride": {
+    "_type": "gameobject",
+    "prefab": "prefabs/props/sentrygun.prefab"
+  },
+  "BaseModel": null,
+  "BaseHealth": 100,
+  "BaseIcon": null,
+  "MetalModel": null,
+  "MetalHealth": 200,
+  "MetalIcon": null,
+  "SteelModel": null,
+  "SteelHealth": 300,
+  "SteelIcon": null,
+  "__references": [],
+  "IsValid": true,
+  "__version": 0
+}

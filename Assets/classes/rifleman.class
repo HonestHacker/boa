@@ -1,0 +1,18 @@
+{
+  "WeaponData": "weapondatas/rifle.weapons",
+  "ClassName": "Rifleman",
+  "ClassDescription": "Take out enemies from a distance",
+  "WalkSpeed": 95,
+  "RunSpeed": 290,
+  "Health": 175,
+  "Hidden": false,
+  "Order": 0,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/pistol.weapons",
+  "ClassModelEnabled": false,
+  "ClassModel": null,
+  "HoldType": "None",
+  "Offset": "0,0,0",
+  "__references": [],
+  "__version": 0
+}

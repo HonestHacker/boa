@@ -1,0 +1,502 @@
+{
+  "__guid": "e3ae6ec4-9049-4167-ab3e-575275964aea",
+  "GameObjects": [
+    {
+      "__guid": "963029ea-761e-41ec-9f19-79c242d144fb",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "96db79d6-6f4a-4b3b-bf2a-59017508ca11",
+          "Changes": "",
+          "Description": "",
+          "SceneTags": "",
+          "Title": "dead4leftmenurewrite"
+        }
+      ]
+    },
+    {
+      "__guid": "0e9966b0-db00-4497-b185-6fc9dbbebe34",
+      "Flags": 0,
+      "Name": "Camera",
+      "Position": "376.7062,501.5297,298.2925",
+      "Rotation": "0,0,-0.5,0.8660254",
+      "Tags": "maincamera",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.CameraComponent",
+          "__guid": "a8b52c65-c3bc-4a6f-9fcf-ca3594277163",
+          "BackgroundColor": "0.33333,0.46275,0.52157,1",
+          "ClearFlags": "All",
+          "FieldOfView": 60,
+          "IsMainCamera": true,
+          "Orthographic": false,
+          "OrthographicHeight": 1204,
+          "Priority": 1,
+          "RenderExcludeTags": "",
+          "RenderTags": "",
+          "TargetEye": "None",
+          "Viewport": "0,0,1,1",
+          "ZFar": 10000,
+          "ZNear": 10
+        },
+        {
+          "__type": "Sandbox.AmbientOcclusion",
+          "__guid": "9e936376-dc8e-47e3-8b98-819cae335975",
+          "__version": 1,
+          "DenoiseMode": "Temporal",
+          "FalloffRange": 0.75,
+          "Intensity": 0.15,
+          "Quality": "High",
+          "Radius": 128,
+          "ThinCompensation": 0
+        },
+        {
+          "__type": "Sandbox.Tonemapping",
+          "__guid": "7d61b0e8-36ab-4920-81b8-0b15a6e592ce",
+          "__version": 1,
+          "AutoExposureEnabled": true,
+          "ExposureBias": 2,
+          "ExposureCompensation": 0,
+          "ExposureMethod": "RGB",
+          "MaximumExposure": 2.96,
+          "MinimumExposure": 1,
+          "Mode": "Legacy",
+          "Rate": 1
+        },
+        {
+          "__type": "Sandbox.DepthOfField",
+          "__guid": "1717010f-838f-4221-bcae-94a044a35471",
+          "BackBlur": true,
+          "BlurSize": 30,
+          "FocalDistance": 200,
+          "FocusRange": 500,
+          "FrontBlur": false,
+          "QualityLevel": "High"
+        },
+        {
+          "__type": "Sandbox.Bloom",
+          "__guid": "b5eef619-2ea0-4764-8382-d48ee49357da",
+          "BloomColor": {
+            "blend": "Linear",
+            "color": [
+              {
+                "t": 0,
+                "c": "1,1,1,1"
+              },
+              {
+                "t": 1,
+                "c": "1,1,1,1"
+              }
+            ],
+            "alpha": []
+          },
+          "BloomCurve": [
+            {
+              "x": 0,
+              "y": 0.5,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
+            },
+            {
+              "x": 1,
+              "y": 1,
+              "in": 0,
+              "out": 0,
+              "mode": "Mirrored"
+            }
+          ],
+          "Mode": "Additive",
+          "Strength": 1,
+          "Threshold": 0.5,
+          "ThresholdWidth": 0
+        },
+        {
+          "__type": "Sandbox.Sharpen",
+          "__guid": "38a3877d-7d11-4267-87ec-031ac2344244",
+          "Scale": 0.2
+        }
+      ]
+    },
+    {
+      "__guid": "085e8a51-91cc-4e9e-8f6a-17fa271ed377",
+      "Flags": 0,
+      "Name": "Screen",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.ScreenPanel",
+          "__guid": "430b1986-317a-48c0-8a89-9ff6dc7ab345",
+          "AutoScreenScale": true,
+          "Opacity": 1,
+          "Scale": 1,
+          "ScaleStrategy": "ConsistentHeight",
+          "ZIndex": 100
+        },
+        {
+          "__type": "MainMenu",
+          "__guid": "ac0ca2f8-e1f1-416c-81a5-d169bcd5f741",
+          "MainScene": "scenes/easter.scene"
+        }
+      ]
+    },
+    {
+      "__guid": "f2aecc7c-b742-472f-ab93-39922aa77022",
+      "Flags": 0,
+      "Name": "Map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "0c5adb45-2667-4261-a3b5-de030b6087c6",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "apetavern.fw_easter",
+          "NoOrigin": false,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "99e978ae-8110-4bf7-b257-4933f56048be",
+      "Flags": 0,
+      "Name": "Ambience",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SoundscapeTrigger",
+          "__guid": "963c67e9-b523-4910-8a62-203274c7a820",
+          "BoxSize": "50,50,50",
+          "Radius": 500,
+          "Soundscape": "soundscapes/field/field_day_breeze_01a.sndscape",
+          "StayActiveOnExit": true,
+          "Type": "Point"
+        }
+      ]
+    },
+    {
+      "__guid": "0e8b2ee7-f42c-4311-8ecc-8a9ed67ed706",
+      "Flags": 0,
+      "Name": "citizen",
+      "Position": "431.9535,370.4318,256.0353",
+      "Rotation": "0,0,0.8660254,0.5",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SkinnedModelRenderer",
+          "__guid": "b54905e8-017d-43be-b835-95cbd433ebe1",
+          "BodyGroups": 341,
+          "CreateAttachments": false,
+          "CreateBoneObjects": false,
+          "Model": "models/citizen/citizen.vmdl",
+          "Morphs": {},
+          "Parameters": {
+            "bools": {
+              "b_long_idle": true
+            },
+            "ints": {
+              "special_idle_states": 1
+            },
+            "floats": {
+              "holdtype_pose": 2
+            },
+            "vectors": {},
+            "rotations": {}
+          },
+          "RenderOptions": {
+            "GameLayer": true,
+            "OverlayLayer": false,
+            "BloomLayer": false,
+            "AfterUILayer": false
+          },
+          "RenderType": "On",
+          "Sequence": {
+            "Name": null
+          },
+          "Tint": "1,1,1,1",
+          "UseAnimGraph": true
+        },
+        {
+          "__type": "LocalPlayerDresser",
+          "__guid": "6e36e25b-5680-49c3-a425-f3bd0e93300f",
+          "MungusModel": "terryisdead/citizen_terryisdead.vmdl"
+        },
+        {
+          "__type": "Sandbox.ModelPhysics",
+          "__guid": "2dfad6fd-7c94-47fa-ba1c-0cf12fe24b39",
+          "Locking": {
+            "X": false,
+            "Y": false,
+            "Z": false,
+            "Pitch": false,
+            "Yaw": false,
+            "Roll": false
+          },
+          "Model": "models/citizen/citizen.vmdl",
+          "MotionEnabled": false,
+          "Renderer": {
+            "_type": "component",
+            "component_id": "b54905e8-017d-43be-b835-95cbd433ebe1",
+            "go": "0e8b2ee7-f42c-4311-8ecc-8a9ed67ed706",
+            "component_type": "SkinnedModelRenderer"
+          },
+          "RigidbodyFlags": 0
+        },
+        {
+          "__type": "HealthComponent",
+          "__guid": "f5cdcc85-42e3-47df-b13f-daf8d54faa4e",
+          "AutohealDelay": 5,
+          "AutohealEnabled": false,
+          "AutohealRate": 1,
+          "BloodEnabled": false,
+          "Health": 125,
+          "HitAnimation": false,
+          "HitAnimationName": "hit",
+          "IsDead": false,
+          "MaxHealth": 100,
+          "OnDeathAction": {
+            "__version": 8,
+            "__guid": "27aa4f0c-f135-49af-b796-a450882e16a9",
+            "__changeId": 20,
+            "UserData": {
+              "Title": "On Death Action",
+              "ReferencedComponentTypes": []
+            },
+            "Variables": [],
+            "Nodes": [
+              {
+                "Id": 0,
+                "Type": "input"
+              },
+              {
+                "Id": 1,
+                "Type": "scene.ref",
+                "UserData": {
+                  "Position": "0,84"
+                }
+              },
+              {
+                "Id": 2,
+                "Type": "property",
+                "Properties": {
+                  "_name": "MotionEnabled",
+                  "_type": "Sandbox.ModelPhysics"
+                },
+                "UserData": {
+                  "Position": "288,-0"
+                }
+              }
+            ],
+            "Links": [
+              {
+                "SrcId": 0,
+                "SrcName": "_signal",
+                "DstId": 2,
+                "DstName": "_signal"
+              },
+              {
+                "SrcId": 1,
+                "SrcName": "_result",
+                "DstId": 2,
+                "DstName": "_target",
+                "UserData": {
+                  "x": 96
+                }
+              },
+              {
+                "Id": 3,
+                "Value": true,
+                "DstId": 2,
+                "DstName": "_value"
+              }
+            ],
+            "Defaults": {
+              "$1.component": {
+                "_type": "component",
+                "component_id": "2dfad6fd-7c94-47fa-ba1c-0cf12fe24b39",
+                "go": "0e8b2ee7-f42c-4311-8ecc-8a9ed67ed706",
+                "component_type": "ModelPhysics"
+              }
+            }
+          },
+          "PlayOnLocal": false,
+          "SpawnDamageIndicator": true
+        }
+      ]
+    },
+    {
+      "__guid": "3ea8fda3-8ceb-4b5b-b1f3-98a7673d6fc8",
+      "Flags": 0,
+      "Name": "Spot Light",
+      "Position": "353.0139,409.9338,316.2001",
+      "Rotation": "0,0,-0.1305262,0.9914449",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "3e3a3b2e-6e5c-4bd0-9627-765ed5b68483",
+          "Attenuation": 1,
+          "ConeInner": 15,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.68837,0.68837,0.68837,1",
+          "Radius": 500,
+          "Shadows": false
+        }
+      ]
+    },
+    {
+      "__guid": "b49ec6dc-427b-4864-b8fe-7fe5ac8b3655",
+      "Flags": 0,
+      "Name": "Spot Light (1)",
+      "Position": "439.6376,448.3019,316.2",
+      "Rotation": "0,0,-0.7933533,0.6087615",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "6abf9629-9f78-4640-8ae7-3bf6b10e25d6",
+          "Attenuation": 1,
+          "ConeInner": 15,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.68837,0.68837,0.68837,1",
+          "Radius": 500,
+          "Shadows": false
+        }
+      ]
+    },
+    {
+      "__guid": "0c380512-12fe-4e94-9cb2-ef6a94316082",
+      "Flags": 0,
+      "Name": "Spot Light (2)",
+      "Position": "498.4807,316.9667,316.2",
+      "Rotation": "0,0,-0.9238796,-0.3826833",
+      "Tags": "light_spot,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SpotLight",
+          "__guid": "d4535780-e7be-42fd-90c4-3f26918845c5",
+          "Attenuation": 1,
+          "ConeInner": 15,
+          "ConeOuter": 45,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "Radius": 500,
+          "Shadows": false
+        }
+      ]
+    },
+    {
+      "__guid": "ba6fffe7-cfd1-4dbf-af3c-46b8e55ca89e",
+      "Flags": 0,
+      "Name": "fw_1x1x1",
+      "Position": "453.4204,270.5734,277",
+      "Rotation": "0,0,0.1305262,0.9914449",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "73fb711c-4ef4-4bf7-ab5c-b39155886389",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "Model": "models/blocks/wood/fw_1x1x1.vmdl",
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "c349289b-6b5c-4f34-9348-c4589b65bf92",
+      "Flags": 0,
+      "Name": "fw_1x2x1",
+      "Position": "403.1923,257.1148,297.0141",
+      "Rotation": "0,0,0.1305262,0.9914449",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "a3b28482-ad7e-4a6e-99de-1b17dd1d533b",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": "default",
+          "Model": "models/blocks/steel/fw_1x2x1.vmdl",
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    },
+    {
+      "__guid": "98c21e29-d3ff-4bca-be1a-b52dae3adce7",
+      "Flags": 0,
+      "Name": "fw_1x2x1",
+      "Position": "538.5435,283.2153,296.0589",
+      "Rotation": "0,0,0.258819,0.9659258",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.Prop",
+          "__guid": "5d6fbdd0-865d-4357-8a82-957e25211afc",
+          "BodyGroups": 18446744073709551615,
+          "Health": 0,
+          "IsStatic": false,
+          "MaterialGroup": "red",
+          "Model": "models/blocks/wood/fw_1x2x1.vmdl",
+          "StartAsleep": false,
+          "Tint": "1,1,1,1"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "dead4leftmenurewrite"
+    },
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": "dead4leftmenurewrite",
+  "Description": null,
+  "__references": [
+    "apetavern.fw1x1x1_wood#78625",
+    "apetavern.fw1x2x1_steel#78633",
+    "apetavern.fw1x2x1_wood#78627",
+    "mungus.citizenterryisdead#79496",
+    "rust.field_day_breeze_01a#43855"
+  ],
+  "__version": 2
+}

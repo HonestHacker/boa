@@ -1,0 +1,9 @@
+{
+  "Name": "M4A4",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/weapons/dead4left_m4a4.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

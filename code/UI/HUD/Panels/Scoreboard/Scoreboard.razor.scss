@@ -1,0 +1,152 @@
+@import "/UI/HUD/HUD.razor.scss";
+
+Scoreboard {
+    position: absolute;
+    z-index: 500;
+    pointer-events: none;
+    width: 1000px;
+    height: 800px;
+    align-items: flex-start;
+    justify-content: center;
+
+    padding: 16px;
+    gap: 16px;
+
+    border-radius: $border-radius;
+
+    transition: opacity 0.2s ease-in-out;
+    flex-direction: row;
+
+    background-color: rgba($primary, 0.99);
+    flex-direction: column;
+
+    opacity: 0;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .map-meta {
+        width: 100%;
+        height: 120px;
+        background-color: $secondary;
+        padding: 0 10 0 10;
+        align-items: center;
+
+        border-radius: $border-radius;
+
+        text-shadow: 2px 2px 4px black;
+
+        font-size: 42px;
+
+        flex-shrink: 0;
+
+        > .info {
+            height: 100%;
+            flex-direction: column;
+            width: 100%;
+
+            > .name {
+                font-size: 38px;
+            }
+
+            > .author {
+                font-size: 24px;
+            }
+
+            > .gamemode
+            {
+                font-size: 24px;
+            }
+        }
+
+        > .players {
+            width: 100%;
+            height: 100%;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 10 0 10;
+        }
+    }
+
+    .body {
+        width: 100%;
+        height: 100%;
+
+        > .team {
+            width: 100%;
+
+            flex-direction: column;
+            padding: 0 10 0 10;
+
+            gap: 8px;
+
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            > .team-name {
+                width: 100%;
+                height: 75px;
+                font-size: 42px;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 12px;
+                flex-shrink: 0;
+
+                font-weight: bolder;
+                flex-direction: column;
+
+                > .text {
+                    margin-bottom: 32px;
+                    text-shadow: 2px 2px 4px black;
+                }
+
+                > .underline {
+                    width: 100%;
+                    height: 4px;
+                    background-color: white;
+                }
+            }
+
+            > .player {
+                height: 75px;
+                align-items: center;
+                background-color: $secondary;
+                padding: 12px;
+                border-radius: $border-radius;
+                justify-content: space-around;
+                flex-shrink: 0;
+            
+                > .name {
+                    font-size: 20px;
+                    text-overflow: ellipsis;
+
+                    align-items: center;
+                    justify-content: center;
+                
+                    padding: 12px;
+                }
+        
+                > .avatar {
+                    width: auto;
+                    height: 100%;
+                    border-radius: 6px;
+        
+                    aspect-ratio: 1/1;
+        
+                    background-position: center;
+                    background-size: cover;
+                }
+            
+                > .stats {
+                    width: 100%;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}

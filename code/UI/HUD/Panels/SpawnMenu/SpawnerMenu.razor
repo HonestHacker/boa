@@ -1,0 +1,84 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Threading.Tasks;
+@using System;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	@{
+		var local = FWPlayerController.Local;
+		var gs = GameSystem.Instance;
+
+		if ( !local.IsValid() || !gs.IsValid() )
+			return;
+	}
+
+	<div class="models">
+		@if (  AllProps is null )
+			return;
+
+		@if ( AllProps.Count() == 0 && !FirstTime )
+		{
+			<div class="empty">
+				No models found
+			</div>
+		}
+		else if ( AllProps.Count() == 0 && FirstTime )
+		{
+			<div class="empty">
+				Loading models...
+			</div>
+		}
+		else
+		{
+            foreach( var prop in AllProps)
+            {
+                <div class="model-container">
+                    <button class="model" style="background-image: url(@prop?.MetalIcon);" onclick=@( () =>
+                    {
+                        SetProp(prop);
+                        Delete();
+                    } )>
+                    
+                    </button>
+                            <label>@(prop.DisplayName)</label>
+                </div>
+            }
+        }
+	</div>
+</root>
+
+@code
+{
+    public Propgun Propgun { get; set; }
+
+    public Package.FindResult Packages { get; set; }
+
+    public List<Package> Models { get; set; } = new();
+
+    public bool FirstTime { get; set; } = true;
+
+    private List<PropResource> AllProps {get; set; }
+
+    protected override void OnAfterTreeRender( bool firstTime )
+    {
+        base.OnAfterTreeRender( firstTime );
+
+        if ( !firstTime )
+            return;
+
+        AllProps = ResourceLibrary.GetAll<PropResource>().Where(x => !x.Hidden).ToList();
+    }
+
+    public void SetProp(PropResource prop)
+    {
+
+        Propgun.CurrentProp = prop;
+    }
+
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine( Models?.Count() );
+	}
+}

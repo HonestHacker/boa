@@ -1,0 +1,16 @@
+{
+  "MapName": "fw_abyss",
+  "MapDescription": "",
+  "FourTeams": false,
+  "Scene": "scenes/fw_abyss.scene",
+  "Thumb": "textures/abyss.vtex",
+  "Author": "Ape Tavern",
+  "PackageIndent": "apetavern.fw_abyss",
+  "Hidden": false,
+  "Order": 3,
+  "AvailableGamemodes": "CaptureTheFlag",
+  "SceneMapEnabled": false,
+  "AdditiveSceneMap": null,
+  "__references": [],
+  "__version": 0
+}

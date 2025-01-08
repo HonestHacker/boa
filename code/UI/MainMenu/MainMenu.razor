@@ -1,0 +1,346 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Threading.Tasks;
+@using Sandbox.Network;
+@using System;
+@inherits PanelComponent
+
+<root>
+	<div class="buttons">
+        <button onclick=@( () => ChangeMenuState( MenuState.Lobbies )) class="big"> Lobbies </button>
+		<button onclick=@( () => ChangeMenuState( MenuState.LobbyCreation ) ) class="big"> Create Lobby </button>
+		@* Leaderboards if yall want it *@
+		 @* <div class="button" onclick=@( () => ChangeMenuState( MenuState.Leaderboards ))> Leaderboards</div> *@
+        <button onclick=@( () => ChangeMenuState( MenuState.About ) ) class="small"> About </button>
+        @* <button onclick=@( () => ChangeMenuState( MenuState.Settings ) ) class="small"> Settings </button> *@
+        <button onclick=@( () => Game.Overlay.ShowSettingsModal()) class="small"> Settings </button>
+        <button onclick=@( () => Game.Close() ) class="small"> Exit </button>
+	</div>
+	<div class="title">
+		<div>Open Forts</div>
+	</div>
+
+	@switch (CurrentState)
+	{
+		case MenuState.Lobbies:
+			<LobbySelector MainMenu=@this />
+			break;
+
+		case MenuState.Leaderboards:
+
+			@if (Leaderboard is not null && Leaderboard.Entries is not null)
+			{
+				<div class="leaderboard">
+					<div class="header"> Leaderboards </div>
+					<div class="leaderboard-holder">
+						@if (FetchingLeaderboard)
+						{
+							<div class="info">Fetching leaderboard...</div>
+						}
+						else
+						{
+
+							@foreach (var entry in Leaderboard.Entries)
+							{
+								<div class="entry @( IsMe(entry) ? "me" : "" ) ">
+									<div class="name"> @entry.Rank. @entry.DisplayName </div>
+									<div class="value"> @entry.Value </div>
+								</div>
+							}
+						}
+					</div>
+					<div class="sort">
+						<div class="button" onclick=@ChangeSortBy> @CurrentSortByString() </div>
+					</div>
+				</div>
+			}
+			break;
+
+		case MenuState.LobbyCreation:
+			<div class="lobby-creation">
+				<MapSelector />
+			</div>
+			break;
+
+        case MenuState.Settings:
+                    <Settings />
+            break;
+
+		case MenuState.About:
+			<div class="about">
+					<label>
+						Fortwars is a fps game mode that consists of teams fighting for control of the ball while building forts out of props to provide cover. 
+					</label>
+					
+					<label>
+						Climb the scoreboard by killing enemies, retrieve the ball for your team, and destroy thosebases to win the game!
+					</label>
+
+					<label>
+						Build mode: 2 min
+					</label>
+
+					<label>
+						Fight mode: 4 min
+					</label>
+
+					<label>
+						Ball time held to win: 1 min
+					</label>
+			</div>
+
+			break;
+	}
+</root>
+
+@code
+{
+	public enum MenuState
+	{
+		About,
+		LobbyCreation,
+		Lobbies,
+		Leaderboards,
+        Settings,
+		None,
+	}
+
+	public MenuState CurrentState { get; set; } = MenuState.None;
+	public bool FetchingLeaderboard { get; set; }
+	[Property] public SceneFile MainScene { get; set; }
+	public Sandbox.Services.Leaderboards.Board2 Leaderboard { get; set; }
+	public SortBy CurrentSortBy { get; set; } = SortBy.AllTime;
+	public bool Country { get; set; }
+	public bool Friends { get; set; }
+
+	public enum SortBy
+	{
+		Day,
+		Week,
+		Month,
+		Year,
+		AllTime
+	}
+
+	public bool IsMe(Sandbox.Services.Leaderboards.Board2.Entry entry)
+	{
+		return entry.SteamId == (long)Sandbox.Utility.Steam.SteamId;
+	}
+
+	public async void FetchLeaderboard(SortBy sortBy = SortBy.AllTime, bool country = false, bool friends = false)
+	{
+		FetchingLeaderboard = true;
+
+		Leaderboard = Sandbox.Services.Leaderboards.GetFromStat("zombieskilled");
+
+		Leaderboard.SetAggregationMax();
+		Leaderboard.SetSortDescending();
+		Leaderboard.CenterOnMe();
+		Leaderboard.MaxEntries = 100;
+
+		if (country)
+			Leaderboard.SetCountryAuto();
+
+		Leaderboard.SetFriendsOnly(friends);
+
+		CurrentSortBy = sortBy;
+		Friends = friends;
+		Country = country;
+
+		switch (sortBy)
+		{
+			case SortBy.Day:
+				Leaderboard.FilterByDay();
+				break;
+			case SortBy.Week:
+				Leaderboard.FilterByWeek();
+				break;
+			case SortBy.Month:
+				Leaderboard.FilterByMonth();
+				break;
+			case SortBy.Year:
+				Leaderboard.FilterByYear();
+				break;
+			case SortBy.AllTime:
+				break;
+		}
+
+		await Leaderboard.Refresh();
+
+		FetchingLeaderboard = false;
+	}
+
+	public void ChangeSortBy()
+	{
+		var sortByValues = Enum.GetValues(typeof(SortBy)).Cast<SortBy>().ToList();
+		var currentIndex = sortByValues.IndexOf(CurrentSortBy);
+		var nextIndex = (currentIndex + 1) % sortByValues.Count;
+		var nextSortBy = sortByValues[nextIndex];
+
+		FetchLeaderboard(nextSortBy, Country, Friends);
+	}
+
+	public string CurrentSortByString()
+	{
+		switch (CurrentSortBy)
+		{
+			case SortBy.Day:
+				return "Day";
+			case SortBy.Week:
+				return "Week";
+			case SortBy.Month:
+				return "Month";
+			case SortBy.Year:
+				return "Year";
+			case SortBy.AllTime:
+				return "All Time";
+		}
+
+		return "All Time";
+	}
+
+    protected override void OnUpdate()
+    {
+        if ( HeldBody.IsValid() )
+        {
+            var tr = Scene.Trace.Ray( Scene.Camera.ScreenPixelToRay( Mouse.Position ), DistanceBetweenObjects )
+                .WithoutTags( "held" )
+                .Run();
+
+            HeldBody.SmoothMove( tr.EndPosition, 0.3f, Time.Delta );
+        }
+    }
+
+	public bool IsSorted(SortBy sortBy)
+	{
+		return CurrentSortBy == sortBy;
+	}
+
+	public void OnSelect(Package package)
+	{
+		LaunchArguments.Map = package.FullIdent;
+
+		Game.ActiveScene?.Load(MainScene);
+	}
+
+	public void JoinLobby(LobbyInformation lobby)
+	{
+		Networking.Connect(lobby.LobbyId);
+	}
+
+	public void ChangeMenuState(MenuState state)
+	{
+		if (CurrentState == state)
+			state = MenuState.None;
+
+		CurrentState = state;
+	}
+
+    public PhysicsBody HeldBody { get; set; }
+
+    protected override void OnMouseDown( MousePanelEvent mousePanelEvent )
+    {
+        var tr = Scene.Trace.Ray( Scene.Camera.ScreenPixelToRay( Mouse.Position ), 500 )
+            .Run();
+
+		if ( mousePanelEvent.MouseButton == MouseButtons.Middle )
+		{
+			var go = new GameObject();
+			go.WorldPosition = tr.EndPosition;
+			go.WorldRotation = Rotation.LookAt( Scene.Camera.WorldPosition.WithZ( 0 ) - tr.EndPosition.WithZ( 0 ) );
+			
+			var renderer = go.Components.Create<Prop>();
+			renderer.Model = Model.Load( "models/citizen/citizen.vmdl" );
+			
+			var clothes = new ClothingContainer();
+			clothes.Deserialize( Connection.Local.GetUserData( "avatar" ) );
+			clothes.Apply( renderer.Components?.Get<SkinnedModelRenderer>() );
+		}
+
+		if ( tr.GameObject?.Root?.Components?.TryGet<MapInstance>( out var m, FindMode.EverythingInSelfAndAncestors ) ?? false )
+			return;
+
+		if ( mousePanelEvent.MouseButton == MouseButtons.Left && tr.Hit )
+		{
+        	if ( tr.Body.IsValid() )
+        	{
+            	HeldBody = tr.Body;
+                HeldBody.BodyType = PhysicsBodyType.Dynamic;
+            	HeldBody?.GetGameObject()?.Tags.Add( "held" );
+            	DistanceBetweenObjects = Scene.Camera.WorldPosition.Distance( HeldBody.Position );
+
+                if ( tr.GameObject.Root.Components.TryGet<SkinnedModelRenderer>( out var r, FindMode.EnabledInSelfAndDescendants ) )
+                {
+                    r.Set( "b_open", true );
+                }
+        	}
+		}
+        else if ( mousePanelEvent.MouseButton == MouseButtons.Right && tr.Hit && !HeldBody.IsValid() )
+        {
+            var damage = new DamageInfo( 25, GameObject, GameObject, tr.Hitbox );
+		    damage.Position = tr.HitPosition;
+		    damage.Shape = tr.Shape;
+
+            foreach ( var damageable in tr.GameObject.Components.GetAll<IDamageable>() )
+		    {
+			    damageable.OnDamage( damage );
+		    }
+
+			if ( tr.GameObject.Components.TryGet<HealthComponent>( out var healthComponent, FindMode.EverythingInSelfAndParent ) )
+			{
+				healthComponent.TakeDamage( GameObject, 25 );
+				Sound.Play( tr.Surface.Sounds.Bullet, tr.HitPosition );
+
+				var prefab = ResourceLibrary.Get<PrefabFile>( "prefabs/effects/blood.prefab" );
+
+				var clone = GameObject.Clone( prefab );
+
+				clone.WorldPosition = tr.HitPosition + tr.Normal * 5;
+				clone.WorldRotation = Rotation.From( 0, 0, Game.Random.Float( 0, 360 ) );
+			}
+
+            if ( tr.Body.IsValid() )
+		    {
+                tr.Body.BodyType = PhysicsBodyType.Dynamic;
+			    tr.Body.ApplyImpulseAt( tr.HitPosition, tr.Direction * 200.0f * tr.Body.Mass.Clamp( 0, 200 ) );
+		    }
+        }
+        else if ( mousePanelEvent.MouseButton == MouseButtons.Right && HeldBody.IsValid() )
+        {
+            HeldBody?.GetGameObject()?.Tags.Remove( "held" );
+
+            if ( HeldBody?.GetGameObject()?.Root.Components.TryGet<SkinnedModelRenderer>( out var r, FindMode.EnabledInSelfAndDescendants ) ?? false )
+            {
+                r.Set( "b_open", false );
+            }
+
+            HeldBody.BodyType = PhysicsBodyType.Static;
+        }
+    }
+
+    public float DistanceBetweenObjects { get; set; }
+
+    protected override void OnMouseUp( MousePanelEvent mousePanelEvent )
+    {
+		if ( mousePanelEvent.MouseButton == MouseButtons.Left )
+		{
+			if ( HeldBody.IsValid() )
+        	{
+            	HeldBody?.GetGameObject()?.Tags.Remove( "held" );
+
+                if ( HeldBody?.GetGameObject()?.Root.Components.TryGet<SkinnedModelRenderer>( out var r, FindMode.EnabledInSelfAndDescendants ) ?? false)
+                {
+                    r.Set( "b_open", false );
+                }
+        	}
+
+        	HeldBody = null;
+		}
+    }
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash() => System.HashCode.Combine(CurrentState,
+	Leaderboard?.Entries?.Count(), FetchingLeaderboard, CurrentSortBy, Country, Friends);
+}

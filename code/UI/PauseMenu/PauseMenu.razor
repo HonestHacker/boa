@@ -1,0 +1,152 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using Sandbox.Network;
+@inherits PanelComponent
+
+@{
+	var local = FWPlayerController.Local;
+}
+
+<root style="opacity: @( Visible ? "1" : "0");">
+	<div class="title">
+		<div style="text-shadow: 4px 4px 6px black;">Fortwars</div>
+	</div>
+
+	<div class="buttons">
+		<button onclick=@( () => Visible = false )> Resume </button>
+		@* <button onclick=@( () => Game.Overlay.ShowServerList( new Sandbox.Modals.ServerListConfig( Game.Ident ) ) )> Servers </button> *@
+
+		@if ( local.IsValid() && local.TeamComponent.IsValid() && local.TeamComponent.Team != Team.None )
+		{
+			<button onclick=@( () => ChangeTeam() )> Change Team </button>
+		}
+
+		<button onclick=@( () => OpenAboutMenu() )> About </button>
+		<button onclick=@( () => OpenInputMapping() )> Input Mapping </button>
+		<button onclick=@( () => Game.Overlay.ShowSettingsModal() )> Settings </button>
+		<button onclick=@BackToMenu> Back to Menu </button>
+		<button onclick=@( () => Game.Close() )> Exit </button>
+	</div>
+</root>
+
+@code
+{
+	public bool Visible { get; set; } = false;
+	[Property] public SceneFile MenuScene { get; set; }
+
+	protected override void OnUpdate()
+	{
+		if ( Input.EscapePressed )
+		{
+			Visible = !Visible;
+
+			//Can't convince me this is not dumb
+			Input.EscapePressed = false;
+		}
+	}
+
+	public void OpenAboutMenu()
+	{
+		if ( Panel.IsValid() && !Panel.ChildrenOfType<AboutPanel>().Any() )
+		{
+			Panel.AddChild( new AboutPanel() );
+		}	
+		else if ( Panel.IsValid() && Panel.ChildrenOfType<AboutPanel>().Any() )
+		{
+			Panel.ChildrenOfType<AboutPanel>()?.ToList()?.ForEach( x => x.Delete() );
+		}
+
+		if ( Panel.IsValid() && Panel.ChildrenOfType<InputMapping>().Any() )
+		{
+			Panel.ChildrenOfType<InputMapping>()?.ToList()?.ForEach( x => x.Delete() );
+		}
+	}
+
+	public void OpenInputMapping()
+	{
+		if ( Panel.IsValid() && !Panel.ChildrenOfType<InputMapping>().Any() )
+		{
+			Panel.AddChild( new InputMapping() );
+		}	
+		else if ( Panel.IsValid() && Panel.ChildrenOfType<InputMapping>().Any() )
+		{
+			Panel.ChildrenOfType<InputMapping>()?.ToList()?.ForEach( x => x.Delete() );
+		}
+
+		if ( Panel.IsValid() && Panel.ChildrenOfType<AboutPanel>().Any() )
+		{
+			Panel.ChildrenOfType<AboutPanel>()?.ToList()?.ForEach( x => x.Delete() );
+		}
+	}
+
+	public void BackToMenu()
+	{
+		Networking.Disconnect();
+
+		Game.ActiveScene.Load( MenuScene );
+	}
+
+	public void ChangeTeam()
+	{
+		var local = FWPlayerController.Local;
+
+		if ( !local.IsValid() || (!local?.TeamComponent.IsValid() ?? true) || (!local?.Inventory.IsValid() ?? true) )
+			return;
+
+		var newTeam = local.TeamComponent.Team == Team.Blue ? Team.Red : Team.Blue;
+
+		if ( local.TeamComponent.Team == Team.None )
+			return;
+
+		local.TeamComponent.SetTeam( newTeam );
+
+		local.Inventory.ClearAll();
+
+		local.TeamComponent.ResetToSpawnPoint();
+
+		var gs = GameSystem.Instance;
+
+		if ( !gs.IsValid() )
+			return;
+
+		var currentRound = gs.CurrentGameModeComponent.CurrentRound;
+
+		if ( gs.CurrentGameModeComponent.IsValid() && currentRound.IsValid() )
+		{
+			var startingCanPickUp = local.Inventory.CanPickUp;
+			var startingCanControlSwitch = local.Inventory.CanScrollSwitch;
+
+			local.Inventory.CanPickUp = true;
+			local.Inventory.CanScrollSwitch = true;
+
+			local.Inventory.AddItems( currentRound.PlayerWeapons );
+
+			if ( currentRound.CanOpenClassSelect && local.Inventory.SelectedClass is not null )
+				local.Inventory.AddClass( local.Inventory.SelectedClass );
+
+			if ( local.HealthComponent.IsDead )
+				local.Inventory.DisableAll();
+
+			local.Inventory.CanPickUp = startingCanPickUp;
+			local.Inventory.CanScrollSwitch = startingCanControlSwitch;
+		}
+	}
+
+	/// <summary>
+	/// the hash determines if the system should be rebuilt. If it changes, it will be rebuilt
+	/// </summary>
+	protected override int BuildHash()
+	{
+		var hash = new System.HashCode();
+
+		hash.Add( Input.EscapePressed );
+		hash.Add( Visible );
+
+		var local = FWPlayerController.Local;
+
+		if ( local.IsValid() && local.TeamComponent.IsValid() )
+			hash.Add( local.TeamComponent.Team );
+
+		return hash.ToHashCode();
+	}
+}

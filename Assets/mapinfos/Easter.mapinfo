@@ -1,0 +1,15 @@
+{
+  "MapName": "fw_easter",
+  "MapDescription": "Blast from the past",
+  "FourTeams": false,
+  "Scene": "scenes/easter.scene",
+  "Thumb": "textures/easter.vtex",
+  "Author": "Ape Tavern",
+  "PackageIndent": "apetavern.fw_easter",
+  "Hidden": false,
+  "Order": 1,
+  "AvailableGamemodes": "Classic, RollermineWars, Deathmatch, CaptureTheFlag",
+  "__references": [],
+  "IsValid": true,
+  "__version": 0
+}

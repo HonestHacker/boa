@@ -1,0 +1,16 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root style="opacity:@(IsActive ? 1 : 0)">
+
+    <div class="title">EMOTES</div>
+
+    @for (int i =0; i < ChatEmotes.Count(); i++) {
+        <div class="emote">
+            <InputHint Size=@InputGlyphSize.Small @Action=@("Slot" + (i + 1).ToString()) @ShowAction=@false/>
+            <div class="title">@ChatEmotes[i].Name</div>
+        </div>
+    }
+</root>
+

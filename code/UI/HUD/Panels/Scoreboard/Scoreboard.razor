@@ -1,0 +1,129 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System;
+@attribute [StyleSheet]
+@inherits Panel
+
+<root>
+	@{
+		var gs = GameSystem.Instance;
+
+		if (!gs.IsValid()) return;
+
+		var blueTeam = gs.BlueTeam;
+		var redTeam = gs.RedTeam;
+		var noneTeam = gs.NoneTeam;
+
+		var meta = Scene.GetAll<SceneInformation>()?.FirstOrDefault();
+	}
+
+	<div class="map-meta">
+		<div class="info">
+			@if (meta.IsValid())
+			{
+				<div class="name">@meta.Title</div>
+
+				@if (!string.IsNullOrEmpty(meta.Author))
+				{
+					<div class="author">By @meta.Author</div>
+				}
+			}
+
+			<div class="gamemode">Gamemode: @gs.CurrentGameMode?.Title</div>
+		</div>
+
+		<div class="players">Players: @Connection.All?.Count()</div>
+	</div>
+
+	<div class="body">
+
+		@if (blueTeam.Any() && blueTeam is not null)
+		{
+			<div class="team">
+
+				<div class="team-name">
+					<div class="text">Blue Team</div>
+					<div class="underline"></div>
+				</div>
+
+				@foreach (var player in blueTeam)
+				{
+					<div class="player">
+						<div class="avatar" style="background-image: url(avatar:@player.Network.Owner?.SteamId)"></div>
+						<div class="name">@player.Network.Owner?.DisplayName</div>
+						<div class="kills">@player?.Player.Kills / @player?.Player.Deaths</div>
+					</div>
+				}
+			</div>
+
+		}
+
+		@if (redTeam.Any() && redTeam is not null)
+		{
+			<div class="team">
+				<div class="team-name">
+					<div class="text">Red Team</div>
+					<div class="underline"></div>
+				</div>
+
+				@foreach (var player in redTeam)
+				{
+					<div class="player">
+						<div class="avatar" style="background-image: url(avatar:@player.Network.Owner?.SteamId)"></div>
+						<div class="name">@player.Network.Owner?.DisplayName</div>
+						<div class="kills">@player?.Player.Kills / @player?.Player.Deaths</div>
+					</div>
+				}
+			</div>
+		}
+
+		@if (noneTeam.Any() && noneTeam is not null)
+		{
+			<div class="team">
+				@if (gs.CurrentGameModeType != GameModeType.Deathmatch)
+				{
+					<div class="team-name">
+						<div class="text">None</div>
+						<div class="underline"></div>
+					</div>
+
+					@foreach (var player in noneTeam)
+					{
+						<div class="player">
+							<div class="avatar" style="background-image: url(avatar:@player.Network.Owner?.SteamId)"></div>
+							<div class="name">@player.Network.Owner?.DisplayName</div>
+						</div>
+					}
+				}
+				else
+				{
+					@foreach (var player in noneTeam.OrderBy(x => x.Player.Kills))
+					{
+						<div class="player">
+							<div class="avatar" style="background-image: url(avatar:@player.Network.Owner?.SteamId)"></div>
+							<div class="name">@player.Network.Owner?.DisplayName</div>
+							<div class="kills">@player?.Player.Kills / @player?.Player.Deaths</div>
+						</div>
+					}
+				}
+			</div>
+		}
+
+	</div>
+</root>
+
+@code
+{
+
+	public Scoreboard()
+	{
+		BindClass("active", () => Input.Down("score"));
+	}
+
+	protected override int BuildHash()
+	{
+		var gs = GameSystem.Instance;
+
+		return HashCode.Combine(gs?.BlueTeam?.Count(), gs?.RedTeam?.Count(), gs?.NoneTeam?.Count(), gs?.TotalKills);
+	}
+}

@@ -1,0 +1,100 @@
+{
+  "RootObject": {
+    "__guid": "a9885ce9-a8df-442c-90f9-c232e22f8fa5",
+    "Flags": 0,
+    "Name": "tracer",
+    "Tags": "light_point,light",
+    "Enabled": true,
+    "Components": [
+      {
+        "__type": "Sandbox.TrailRenderer",
+        "__guid": "c98e3018-b98f-4000-a975-de772bf6d3ea",
+        "BlendMode": "Normal",
+        "CastShadows": false,
+        "Color": {
+          "color": [
+            {
+              "t": 0.08760684,
+              "c": "1,0.35814,0.16279,1"
+            },
+            {
+              "t": 1,
+              "c": "1,0.9724,0.58605,1"
+            }
+          ],
+          "alpha": []
+        },
+        "Face": "Camera",
+        "LifeTime": 0.5,
+        "MaxPoints": 16,
+        "Opaque": false,
+        "PointDistance": 4,
+        "RenderOptions": {
+          "GameLayer": true,
+          "OverlayLayer": false,
+          "BloomLayer": false,
+          "AfterUILayer": false
+        },
+        "Texturing": {
+          "WorldSpace": true,
+          "UnitsPerTexture": 10,
+          "Scale": 1
+        },
+        "Width": [
+          {
+            "y": 0.21010639
+          },
+          {
+            "x": 0.16666667,
+            "y": 1
+          },
+          {
+            "x": 0.7559524,
+            "y": 0.9337838
+          },
+          {
+            "x": 1
+          }
+        ],
+        "Wireframe": false
+      },
+      {
+        "__type": "Tracer",
+        "__guid": "bade0ce1-b0cd-4f3f-868a-1c481e650bc4",
+        "Speed": 5000
+      }
+    ],
+    "Children": [],
+    "__variables": [],
+    "__properties": {
+      "FixedUpdateFrequency": 50,
+      "MaxFixedUpdates": 5,
+      "NetworkFrequency": 30,
+      "NetworkInterpolation": true,
+      "PhysicsSubSteps": 1,
+      "ThreadedAnimation": true,
+      "TimeScale": 1,
+      "UseFixedUpdate": true,
+      "Metadata": {},
+      "NavMesh": {
+        "Enabled": false,
+        "IncludeStaticBodies": true,
+        "IncludeKeyframedBodies": true,
+        "EditorAutoUpdate": true,
+        "AgentHeight": 64,
+        "AgentRadius": 16,
+        "AgentStepSize": 18,
+        "AgentMaxSlope": 40,
+        "ExcludedBodies": "",
+        "IncludedBodies": ""
+      }
+    }
+  },
+  "ShowInMenu": false,
+  "MenuPath": null,
+  "MenuIcon": null,
+  "DontBreakAsTemplate": false,
+  "ResourceVersion": 1,
+  "__references": [],
+  "__version": 1
+}

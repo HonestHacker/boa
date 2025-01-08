@@ -1,0 +1,52 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits Panel
+
+<root>
+    <DropDown @ref="DropDown" tooltip=@(((GameModeResource)DropDown?.Selected?.Value)?.Description) onclick=@OnClick ValueChanged="@OnValueChange" />
+</root>
+
+@code
+{
+    DropDown DropDown;
+
+    public bool IsDropDownOpen { get; set; } = false;
+
+	protected override void OnAfterTreeRender(bool firstTime)
+	{
+		if (firstTime)
+		{
+			List<Option> Options;
+			
+			if ( !Game.IsEditor )
+				Options = ResourceLibrary.GetAll<GameModeResource>().Where( x => !x.Hidden ).Select( x => new Option() { Title = x.Title, Value = x } ).ToList();
+			else
+				Options = ResourceLibrary.GetAll<GameModeResource>().Select( x => new Option() { Title = x.Title, Value = x } ).ToList();
+			
+			DropDown.Options = Options;
+			DropDown.Selected = Options.FirstOrDefault( x => x.Title == "Capture the Flag" );
+		}
+
+		GameSystem.SetGameMode( (GameModeResource)DropDown.Selected.Value );
+
+		base.OnAfterTreeRender(firstTime);
+	}
+
+	void OnValueChange( string value )
+	{
+		GameSystem.SetGameMode( (GameModeResource)DropDown.Selected.Value );
+	}
+
+	void OnClick()
+	{
+		if ( IsDropDownOpen )
+		{
+			Sandbox.UI.Popup.CloseAll();
+			IsDropDownOpen = false;
+		}
+		else
+		{
+			IsDropDownOpen = true;
+		}
+	}
+}

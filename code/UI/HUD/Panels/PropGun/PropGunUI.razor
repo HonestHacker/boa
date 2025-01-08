@@ -1,0 +1,34 @@
+﻿@using Sandbox.UI;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+    @{
+        if(GetPropGun() == null)
+            return;
+    }
+   <div class="holder">
+         @* <div class="text">
+            <InputHint Size=@InputGlyphSize.Small @Action=@("attack2") @ShowAction=@false/>
+            <label>Mode: @(GetMode())</label>
+        </div> *@
+
+        <div class="text">
+            <InputHint Size=@InputGlyphSize.Small @Action=@("menu") @ShowAction=@false/>
+            <label>Current Prop: @(GetItemName())</label>
+        </div>
+		
+		<div class="text">
+            <InputHint Size=@InputGlyphSize.Small @Action=@("ToggleGrid") @ShowAction=@false/>
+            <label>Grid Snap: @(GetPropGun().SnapToGrid)</label>
+        </div>
+		<div class="text">
+            <InputHint Size=@InputGlyphSize.Small @Action=@("voice") @ShowAction=@false/>
+            <label>Change Prop Level</label>
+        </div>
+		<div class="text">
+            <InputHint Size=@InputGlyphSize.Small @Action=@("RotateProp") @ShowAction=@false/>
+            <label>Rotate Prop</label>
+        </div>
+    </div>
+</root>

@@ -1,0 +1,80 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Threading.Tasks;
+@using System;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<div class="model">
+		<div class="title">@SelectedClass?.ClassName</div>
+
+		<div class="description">@SelectedClass?.ClassDescription</div>
+
+		<ModelPanel PlayerClass=@SelectedClass @ref="ModelPanel" />
+	</div>
+	
+	<div class="main">
+		@foreach ( var playerClass in ResourceLibrary.GetAll<PlayerClass>().OrderBy( x => x.Order ).Reverse() )
+		{
+			if ( playerClass.Hidden )
+				continue;
+
+			<ClassButton ClassSelect=@this PlayerClass=@playerClass />
+		}
+	</div>
+</root>
+
+@code
+{
+	public Inventory Inventory { get; set; }
+
+	public ModelPanel ModelPanel { get; set; }
+
+	public PlayerClass SelectedClass { get; set; } = ResourceLibrary.GetAll<PlayerClass>()?.FirstOrDefault( x => !x.Hidden );
+
+	public static bool FirstTimeClosing { get; set; } = true;
+
+	public Dictionary<PlayerClass, Panel> ClassPanels { get; set; } = new();
+
+	public override void Tick()
+	{
+		if ( ModelPanel.IsValid() )
+		{
+			ModelPanel.PlayerClass = SelectedClass;
+		}
+	}
+
+	public string GetSpeedMutliplyer( float playerSpeed, float speed )
+	{
+		var percent = ((playerSpeed / speed) * 100 ) / 100;
+
+		return $"{Math.Round( percent, 1 )}x";
+	}
+
+	public void SelectClass( PlayerClass playerClass )
+	{
+		if ( !Inventory.IsValid() )
+			return;
+
+		Inventory.AddClass( playerClass );
+
+		Delete();
+	}
+
+	public void Close()
+	{
+		if ( FirstTimeClosing )
+		{
+			var popup = new Popup();
+			popup.Title = $"You can open this at anytime by pressing {Input.GetButtonOrigin( "view" )}";
+			popup.Time = 5;
+
+			PopupHolder.AddPopup( popup );
+
+			FirstTimeClosing = false;
+		}
+
+		Delete();
+	}
+}

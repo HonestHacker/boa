@@ -1,0 +1,19 @@
+{
+  "WeaponData": "weapondatas/m4a4.weapons",
+  "ClassName": "Medium",
+  "ClassDescription": "This class is armed with an M4A1, able to deal significant damage at medium distances. This class will generally do well on any map, and is best played offensively. ",
+  "WalkSpeed": 250,
+  "RunSpeed": 325,
+  "Health": 130,
+  "Hidden": false,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/pistol.weapons",
+  "ClassModelEnabled": true,
+  "ClassModel": "models/weapons/sbox_assault_m4a1/w_m4a1.vmdl",
+  "HoldType": "Rifle",
+  "Offset": "2.8,0,-4.4",
+  "__references": [
+    "facepunch.w_m4a1#60166"
+  ],
+  "__version": 0
+}

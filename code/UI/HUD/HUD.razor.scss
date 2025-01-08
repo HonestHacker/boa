@@ -1,0 +1,117 @@
+$primary: #1a1a1a;
+$secondary: #242424;
+$tertiary: #fdc418;
+
+$button-primary: #ffffff !default;
+$button-primary-fg: #ffffff !default;
+$button-secondary: #282828 !default;
+$button-secondary-fg: #dadada !default;
+$button-size: 45px;
+$border-radius: 4px;
+
+HUD {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    font-family: Tahoma;
+    font-weight: bold;
+    transition: all 0.1s linear;
+    font-family: 'Chakra Petch';
+    color: white;
+
+    > .score {
+        position: absolute;
+        top: 32px;
+        left: 32px;
+        font-size: 42px;
+        color: white;
+    }
+
+    .crosshair {
+        
+    }
+
+    .hitMarker {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 1;
+        width: 64px;
+        height: 64px;
+        transition: all 0.2s linear;
+
+        img {
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+
+    .healthholder {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        flex-direction: column;
+        gap: 16px;
+        width: 12%;
+        filter: drop-shadow( 0 0 10px rgba( black, 0.7 ) );
+        transform: rotate(-1deg);
+    }
+
+    .about {
+        width: 700px;
+        height: 600px;
+        background-color: $primary;
+        flex-direction: column;
+        border-radius: $border-radius;
+        padding: 24px;
+        pointer-events: all;
+        gap: 21px;
+        font-size: 26px;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        align-items: flex-start;
+        justify-content: center;
+
+        > label {
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+    }
+
+    PropRadialMenu
+    {
+        z-index: 5;
+    }
+}
+
+button {
+    font-size: 42px;
+    height: 100px;
+    background-color: $button-secondary;
+    color: $button-secondary-fg;
+    border-radius: $border-radius;
+    border-width: 2px;
+    border-color: $primary;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.05s;
+
+    &:hover {
+        sound-in: ui.button.over;
+        cursor: pointer;
+        background-image-tint: orange;
+        transform: scale(1.05);
+    }
+
+    &:active {
+        sound-in: ui.button.press;
+        cursor: pointer;
+        transform: scale(0.95);
+    }
+}

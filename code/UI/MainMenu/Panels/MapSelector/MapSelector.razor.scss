@@ -1,0 +1,190 @@
+@import "/UI/HUD/HUD.razor.scss";
+
+MapSelector {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: $primary;
+    border-radius: 4 0 0 4;
+    font-family: 'Chakra Petch';
+    flex-grow: 1;
+    flex-shrink: 0;
+    z-index: 1;
+
+    &.full {
+        border-radius: 4px;
+    }
+
+    transition: opacity 0.5s ease-in-out;
+
+    &:intro {
+        opacity: 0;
+    }
+
+    .tabs {
+        width: 100%;
+        height: 75px;
+        align-items: center;
+        justify-content: center;
+        padding: 4px;
+        flex-shrink: 0;
+
+        .tab {
+            width: 100%;
+            height: 100%;
+            font-size: 24px;
+            align-items: center;
+            justify-content: center;
+            background-color: $button-secondary;
+            color: $button-secondary-fg;
+            border-width: 2px;
+            border-color: $primary;
+            border-radius: 4px;
+
+            &.active {
+                background-color: hsl(0, 0%, 20%);
+            }
+
+            &:hover {
+                background-color: hsl(0, 0%, 18%);
+                sound-in: ui.button.over;
+                cursor: pointer;
+            }
+
+            &:active {
+                background-color: hsl(0, 0%, 15%);
+                sound-in: ui.button.press;
+            }
+        }
+    }
+
+    .search-bar {
+        width: 95%;
+        height: 75px;
+        font-size: 24px;
+        margin: 14px;
+
+        TextEntry {
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            height: 100%;
+            background-color: $secondary;
+            border-radius: 4px;
+        }
+    }
+
+    > .maps {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        padding: 12px;
+
+        > .notice {
+            width: 100%;
+            height: 100px;
+            font-size: 18px;
+            align-items: center;
+            justify-content: center;
+            color: rgb(233, 94, 94);
+            background-color: hsl(0, 0%, 11%);
+            border-color: hsl(0, 0%, 15%);
+            border-width: 6;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        > .holder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            width: 100%;
+            justify-content: flex-start;
+            height: 100%;
+
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+
+            .info {
+                width: 100%;
+                height: 100%;
+                font-size: 42px;
+                align-items: center;
+                justify-content: center;
+            }
+
+            > .map {
+                position: relative;
+                max-width: 50%;
+                max-height: 256;
+                background-color: $secondary;
+                flex-grow: 1;
+                height: 49%;
+                width: 45%;
+                flex-shrink: 0;
+
+                border-radius: $border-radius;
+                align-items: center;
+                justify-content: center;
+                transition: all 0.2s;
+
+                aspect-ratio: 1 / 2;
+
+                .img {
+                    width: 95%;
+                    height: 95%;
+                    border-radius: 4px;
+                    background-size: cover;
+                }
+
+                .chip {
+                    position: absolute;
+                    bottom: 0;
+                    font-size: 18px;
+                    text-overflow: ellipsis;
+                    min-height: 32px;
+                    width: 90%;
+                    margin: 12px;
+                    border-radius: 12px;
+                    flex-direction: column;
+                    padding: 12px;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 100;
+                    background-color: $button-secondary;
+                    border-color: $primary;
+                    border-width: 4;
+                    gap: 2px;
+
+                    > p {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                }
+
+                &:hover {
+                    background-color: hsl(0, 0%, 20%);
+                    sound-in: ui.button.over;
+                    cursor: pointer;
+
+                    .chip {
+                        background-color: hsl(0, 0%, 20%);
+                    }
+
+                    .img {
+                        filter: brightness(0.8);
+                    }
+                }
+
+                &:active {
+                    background-color: hsl(0, 0%, 15%);
+                    sound-in: ui.button.press;
+                }
+            }
+        }
+    }
+}

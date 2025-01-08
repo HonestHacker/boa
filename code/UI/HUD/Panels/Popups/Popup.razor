@@ -1,0 +1,48 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Threading.Tasks;
+@using System;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<div class="main">@Title</div>
+</root>
+
+@code
+{
+	public TimeUntil Time { get; set; } = 0;
+
+	public string Title { get; set; } = "Popup";
+
+	public override void Tick()
+	{
+		if ( Time )
+		{
+			AddClass( "outro" );
+
+			Invoke( 1f, () => Delete() );
+		}	
+	}
+
+	[ActionGraphNode( "Create new Popup" ), Pure]
+	public static Popup NewPopup( string title, int time )
+	{
+		return new Popup
+		{
+			Title = title,
+			Time = time
+		};
+	}
+
+	[ActionGraphNode( "Has Popup" ), Pure]
+	public static bool HasPopup( Popup popup )
+	{
+		var instance = PopupHolder.Instance;
+
+		if ( !instance.IsValid() )
+			return true;
+		
+		return instance?.Panel.ChildrenOfType<Popup>().Any( x => x.Title == popup.Title ) ?? false;
+	}
+}

@@ -1,0 +1,92 @@
+{
+  "__guid": "1fbad2c4-a765-43ec-adcc-053a3959320f",
+  "GameObjects": [
+    {
+      "__guid": "199eb0e7-09f3-4b0a-9f23-02fb4fe598e1",
+      "Flags": 0,
+      "Name": "Map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "d283ad77-fd7c-43b3-8fcf-e699486a34c3",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "facepunch.datacore",
+          "NoOrigin": false,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "dc5eed8f-f3f8-47ba-b7ac-984025131c2c",
+      "Flags": 0,
+      "Name": "Meta",
+      "Position": "-329.0441,-229.7482,300.4733",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "e0895a70-4c8e-4bb6-9566-33fb55978580",
+          "Author": "Facepunch",
+          "Changes": "",
+          "Description": "",
+          "SceneTags": "",
+          "Title": "Datacore"
+        }
+      ]
+    },
+    {
+      "__guid": "fac02d2e-d362-43fc-bd81-1b7a1ce3f452",
+      "Flags": 0,
+      "Name": "Healthpack",
+      "Position": "41.47311,747.763,888",
+      "Enabled": true,
+      "__Prefab": "prefabs/healthpack.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "f2537821-8798-421a-9316-faad38c881ef",
+      "Flags": 0,
+      "Name": "Healthpack (1)",
+      "Position": "-48,-304,848",
+      "Enabled": true,
+      "__Prefab": "prefabs/healthpack.prefab",
+      "__PrefabVariables": {}
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "Datacore",
+      "Author": "Facepunch"
+    },
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": "Datacore",
+  "Description": null,
+  "__references": [],
+  "__version": 2
+}

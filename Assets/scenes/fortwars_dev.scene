@@ -1,0 +1,1342 @@
+{
+  "__guid": "f215fd15-a2b5-4e91-921e-1700956e53a1",
+  "GameObjects": [
+    {
+      "__guid": "8e1a861a-9c0e-4f84-aa73-82b3b90b360a",
+      "Flags": 0,
+      "Name": "Scene Information",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.SceneInformation",
+          "__guid": "65b87855-e89c-447e-b1ef-cf9b08415213",
+          "Author": "Ape Tavern",
+          "Description": "",
+          "Group": "",
+          "SceneTags": "",
+          "Title": "Fortwars Dev"
+        }
+      ]
+    },
+    {
+      "__guid": "cfef0074-2310-4c4a-a7db-5e3ec251da68",
+      "Flags": 0,
+      "Name": "Map",
+      "Tags": "map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "8e8c95a1-66f2-4312-aa1e-5ed95e0055df",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "apetavern.fw_dev",
+          "NoOrigin": false,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "2286b293-12bb-44a0-9245-62a425967146",
+      "Flags": 0,
+      "Name": "Blue Spawns",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "710ccbb7-ffd7-4318-946f-aab9399bb1ad",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-0.0007469647,2100.001,-384",
+          "Rotation": "0,0,0.7071069,-0.7071066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "e4afdd6d-e07f-4806-9248-f86ac6a1aaca",
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "be02c05e-48de-4397-9f6a-5fd0e8830dde",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "47.99962,2100,-384",
+          "Rotation": "0,0,0.7071069,-0.7071066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "db8acf8b-1f44-4484-a24b-0e12b7a36cf1",
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "972267bc-f0be-4033-93a0-e7183fd7166f",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "95.99962,2099.999,-384",
+          "Rotation": "0,0,0.7071069,-0.7071066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "e1c0dcc6-8fc5-4b0c-9f86-2da4d1457011",
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "fa743aba-478f-49c7-9b81-86f22d63d6ee",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-48.00037,2100,-384",
+          "Rotation": "0,0,0.7071069,-0.7071066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "cdc2f00c-cc31-4b41-a452-d4903d12e2b3",
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "8b8a65b6-2582-44cb-8f0a-41d470645404",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-96.00037,2100,-384",
+          "Rotation": "0,0,0.7071069,-0.7071066",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "9241e8d8-dcae-4840-a6ad-3440a8aadeea",
+              "Team": "Blue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "816c8296-ebc6-4086-a275-959ea296cc6b",
+      "Flags": 0,
+      "Name": "Red Spawns",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "a1522e85-fdd2-4ba1-ba00-040ca2bcb02f",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-0.0000007156632,-2084,-384",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "37efda89-f78c-434b-b2da-67d9d17088fb",
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "0056b499-8170-41cd-891f-ace2d6a736f8",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-48.00037,-2083.999,-384",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "c3f62895-18b5-4406-ae2a-b5fadc3b0ec9",
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "802c85ff-4dc7-446c-ba28-7f4390d959f8",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-96.00037,-2083.998,-384",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "d063fa15-7be8-4b0d-b4cd-a926509aefb7",
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "91a66a80-1967-4471-9b24-d24c7603b26b",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "47.99962,-2083.999,-384",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "b6db12fb-076d-4fe4-8097-6e293f3b25c8",
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "595feb48-2c68-461b-a003-c9f84ae4c6be",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "95.99962,-2083.999,-384",
+          "Rotation": "0,0,0.7071067,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "5390cb24-a407-4fbe-bf18-a7875f31217e",
+              "Team": "Red"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "631a8eb0-fc7a-422d-a08c-5da41b4e64ff",
+      "Flags": 0,
+      "Name": "Wall",
+      "Position": "-314,0,-159.9993",
+      "Tags": "map",
+      "Enabled": true,
+      "NetworkMode": 1,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "6aed20ea-2138-4842-bb28-25281c228421",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-6982,-64,3871.999",
+              "7482,-64,3871.999",
+              "7482,64,3871.999",
+              "-6982,64,3871.999",
+              "-6982,64,-2912.001",
+              "7482,64,-2912.001",
+              "7482,-64,-2912.001",
+              "-6982,-64,-2912.001"
+            ],
+            "TextureCoord": [
+              "56,0.5",
+              "-57,-29",
+              "56,-0.5",
+              "-0.5,-29",
+              "-57,-0.5",
+              "-56,-29",
+              "-57,0.5",
+              "-0.5,-29",
+              "56,-0.5",
+              "57,24",
+              "56,0.5",
+              "0.5,24",
+              "-57,0.5",
+              "56,24",
+              "-57,-0.5",
+              "0.5,24",
+              "0.5,-29",
+              "-57,24",
+              "-0.5,24",
+              "57,-29",
+              "-0.5,24",
+              "56,-29",
+              "0.5,-29",
+              "-56,24"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "0,0",
+              "0,0",
+              "0,511.999",
+              "0,511.999",
+              "0,511.999",
+              "0,511.999"
+            ],
+            "MaterialIndex": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/glass/glass_c.vmat",
+              "materials/fortwars/barrier_neutral.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "WallComponent",
+          "__guid": "297b746a-1aa1-4f98-8cfb-ad781a973d71"
+        }
+      ]
+    },
+    {
+      "__guid": "08f12558-e4bb-48a9-b4ab-71804d1d2492",
+      "Flags": 0,
+      "Name": "Kill Trigger",
+      "Position": "0,0,-1408",
+      "Tags": "trigger,map",
+      "Enabled": true,
+      "NetworkMode": 1,
+      "Components": [
+        {
+          "__type": "DeathTrigger",
+          "__guid": "3ce93a5b-ffd8-4093-8f42-e1f54f047d6d",
+          "TeleportBall": true
+        },
+        {
+          "__type": "Sandbox.BoxCollider",
+          "__guid": "1faf062c-356f-42f7-a25b-c7d91226a171",
+          "Center": "0,0,0",
+          "IsTrigger": true,
+          "Scale": "10000,10000,500",
+          "Static": false,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "ed63a17c-e0d4-489d-ac1c-3a2eceafb7e0",
+      "Flags": 0,
+      "Name": "rollermine",
+      "Position": "0,0,-208",
+      "Rotation": "0,0,0.7071068,0.7071068",
+      "Tags": "rollermine,light_point,light",
+      "Enabled": true,
+      "NetworkMode": 1,
+      "NetworkOrphaned": 3,
+      "OwnerTransfer": 0,
+      "__Prefab": "prefabs/rollermine.prefab",
+      "__PrefabVariables": {}
+    },
+    {
+      "__guid": "90339e92-516d-4aa4-a385-b2c299572195",
+      "Flags": 0,
+      "Name": "RedBarrier Trigger",
+      "Position": "0,-1896,-336",
+      "Tags": "red,no_build,map,trigger",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "b4a728aa-bf86-4d25-8851-96ba11a2ccbf",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "HideInGame": true,
+          "IsTrigger": true,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-56,-8,48",
+              "56,-8,48",
+              "56,8,48",
+              "-56,8,48",
+              "-56,8,-48",
+              "56,8,-48",
+              "56,-8,-48",
+              "-56,-8,-48"
+            ],
+            "TextureCoord": [
+              "0.4375,14.875",
+              "-0.4375,2.25",
+              "0.4375,14.75",
+              "-14.875,2.25",
+              "-0.4375,14.75",
+              "-0.4375,2.25",
+              "-0.4375,14.875",
+              "14.75,2.25",
+              "0.4375,14.75",
+              "0.4375,3",
+              "0.4375,14.875",
+              "-14.75,3",
+              "-0.4375,14.875",
+              "0.4375,3",
+              "-0.4375,14.75",
+              "14.875,3",
+              "14.875,2.25",
+              "-0.4375,3",
+              "14.75,3",
+              "0.4375,2.25",
+              "-14.875,3",
+              "0.4375,2.25",
+              "-14.75,2.25",
+              "-0.4375,3"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0"
+            ],
+            "MaterialIndex": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/fortwars/barrier_red.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "SpawnWallTrigger",
+          "__guid": "296653e9-9476-4b2c-949c-99e16f19a604"
+        }
+      ]
+    },
+    {
+      "__guid": "302cc0b1-fe37-4f29-a90f-aae350ad50fe",
+      "Flags": 0,
+      "Name": "RedBarrier",
+      "Position": "0,-1896,-336",
+      "Tags": "red,no_build,map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "f849bf52-43bc-440c-824a-1bdb7f57de25",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-56,-8,48",
+              "56,-8,48",
+              "56,8,48",
+              "-56,8,48",
+              "-56,8,-48",
+              "56,8,-48",
+              "56,-8,-48",
+              "-56,-8,-48"
+            ],
+            "TextureCoord": [
+              "0.4375,14.875",
+              "-0.4375,2.25",
+              "0.4375,14.75",
+              "-14.875,2.25",
+              "-0.4375,14.75",
+              "-0.4375,2.25",
+              "-0.4375,14.875",
+              "14.75,2.25",
+              "0.4375,14.75",
+              "0.4375,3",
+              "0.4375,14.875",
+              "-14.75,3",
+              "-0.4375,14.875",
+              "0.4375,3",
+              "-0.4375,14.75",
+              "14.875,3",
+              "14.875,2.25",
+              "-0.4375,3",
+              "14.75,3",
+              "0.4375,2.25",
+              "-14.875,3",
+              "0.4375,2.25",
+              "-14.75,2.25",
+              "-0.4375,3"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0",
+              "0,0"
+            ],
+            "MaterialIndex": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/fortwars/barrier_red.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "d5b46fc4-ccbf-4440-8094-f9cf293d8915",
+      "Flags": 0,
+      "Name": "BlueBarrier Trigger",
+      "Position": "0,1896,-336",
+      "Tags": "blue,no_build,map,trigger",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "9d6197ac-2c7e-4a1d-aa40-02bce214b848",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "HideInGame": true,
+          "IsTrigger": true,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-56,-8,48",
+              "56,-8,48",
+              "56,8,48",
+              "-56,8,48",
+              "-56,8,-48",
+              "56,8,-48",
+              "56,-8,-48",
+              "-56,-8,-48"
+            ],
+            "TextureCoord": [
+              "0.4375,14.875",
+              "-0.4375,2.25",
+              "0.4375,14.75",
+              "-14.875,2.25",
+              "-0.4375,14.75",
+              "-0.4375,2.25",
+              "-0.4375,14.875",
+              "14.75,2.25",
+              "0.4375,14.75",
+              "0.4375,3",
+              "0.4375,14.875",
+              "-14.75,3",
+              "-0.4375,14.875",
+              "0.4375,3",
+              "-0.4375,14.75",
+              "14.875,3",
+              "14.875,2.25",
+              "-0.4375,3",
+              "14.75,3",
+              "0.4375,2.25",
+              "-14.875,3",
+              "0.4375,2.25",
+              "-14.75,2.25",
+              "-0.4375,3"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "0,320",
+              "0,320",
+              "320,0",
+              "192,0",
+              "0,0",
+              "0,0"
+            ],
+            "MaterialIndex": [
+              2,
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/fortwars/barrier_red.vmat",
+              "materials/fortwars/barrier_blue.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "SpawnWallTrigger",
+          "__guid": "3e2b07d5-f934-4b1a-beeb-0a0c159d924e"
+        }
+      ]
+    },
+    {
+      "__guid": "05f6b2c2-4cd2-46ee-9c14-1ffa9a25d62b",
+      "Flags": 0,
+      "Name": "BlueBarrier",
+      "Position": "0,1896,-336",
+      "Tags": "blue,no_build,map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "1d0f0670-0a1e-4472-ae82-8f9014b0f961",
+          "Collision": "Mesh",
+          "Color": "1,1,1,1",
+          "HideInGame": false,
+          "IsTrigger": false,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-56.18061,-8,48",
+              "55.81939,-8,48",
+              "55.81939,8,48",
+              "-56.18061,8,48",
+              "-56.18061,8,-48",
+              "55.81939,8,-48",
+              "55.81939,-8,-48",
+              "-56.18061,-8,-48"
+            ],
+            "TextureCoord": [
+              "0.4360889,-14.125",
+              "-0.4389111,2.25",
+              "0.4360889,-14.25",
+              "15.125,2.25",
+              "-0.4389111,-14.25",
+              "-0.4360889,2.25",
+              "-0.4389111,-14.125",
+              "-14.25,2.25",
+              "0.4360889,-14.25",
+              "0.4389111,3",
+              "0.4360889,-14.125",
+              "15.25,3",
+              "-0.4389111,-14.125",
+              "0.4360889,3",
+              "-0.4389111,-14.25",
+              "-14.125,3",
+              "-14.125,2.25",
+              "-0.4389111,3",
+              "-14.25,3",
+              "0.4389111,2.25",
+              "15.125,3",
+              "0.4360889,2.25",
+              "15.25,2.25",
+              "-0.4360889,3"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "511.9999,320",
+              "511.9999,320",
+              "320,0",
+              "192,0",
+              "0.00004577637,0",
+              "511.9999,0"
+            ],
+            "MaterialIndex": [
+              1,
+              1,
+              1,
+              1,
+              2,
+              2
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/dev/reflectivity_30.vmat",
+              "materials/fortwars/barrier_red.vmat",
+              "materials/fortwars/barrier_blue.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        }
+      ]
+    },
+    {
+      "__guid": "fa1b73a5-219e-43bb-ab8c-e8f0c7459cb6",
+      "Flags": 0,
+      "Name": "NeutralSpawns",
+      "Position": "301.0388,1901.123,-324.627",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "e4a00c3e-7b18-4677-9acb-bd86c2e66fe2",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-309.0388,-2804.544,68.62704",
+          "Rotation": "0,0,0.8660254,0.5000001",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "e38f79e1-16f7-45c9-93e1-560e24b66302",
+              "Team": "None"
+            }
+          ]
+        },
+        {
+          "__guid": "76cd4338-e3cf-401e-b037-357404c08ca8",
+          "Flags": 0,
+          "Name": "Spawn (4)",
+          "Position": "-357.0388,-1049.412,68.62704",
+          "Rotation": "0,0,0.5000003,-0.8660253",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "cbe73882-b67d-4acc-902f-7f369ba5d185",
+              "Team": "None"
+            }
+          ]
+        },
+        {
+          "__guid": "1321db56-5b36-4e66-8379-a1f439b0c337",
+          "Flags": 0,
+          "Name": "Spawn (1)",
+          "Position": "-637.0388,-2829.123,68.62704",
+          "Rotation": "0,0,0.3826834,0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "76d20905-fccc-4256-a9ca-03d0be1d9877",
+              "Team": "None"
+            }
+          ]
+        },
+        {
+          "__guid": "a2c2a17e-fae8-4c2b-8749-be25fb30d842",
+          "Flags": 0,
+          "Name": "Spawn (5)",
+          "Position": "-29.03882,-1024.834,68.62704",
+          "Rotation": "0,0,0.9238797,-0.3826832",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "b5f90c93-6a96-413a-904d-6cd69c4f7eb8",
+              "Team": "None"
+            }
+          ]
+        },
+        {
+          "__guid": "800f8403-fcbc-426a-8a88-3e576dcce3ca",
+          "Flags": 0,
+          "Name": "Spawn (2)",
+          "Position": "-29.03882,-2813.123,68.62715",
+          "Rotation": "0,0,0.9238796,0.3826836",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "912ea11b-3905-43da-bca9-d3c7ce16bb15",
+              "Team": "None"
+            }
+          ]
+        },
+        {
+          "__guid": "ba7c383f-07be-427a-a264-970c0728ce9f",
+          "Flags": 0,
+          "Name": "Spawn (3)",
+          "Position": "-637.0388,-1040.833,68.62715",
+          "Rotation": "0,0,0.3826838,-0.9238796",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "774db268-64cd-4493-bf9f-143a2e995333",
+              "Team": "None"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "63bb5a45-fecf-484e-87fc-b13ab5c8865f",
+      "Flags": 0,
+      "Name": "Flag Spawn",
+      "Position": "0,-1536,-136",
+      "Rotation": "0,0,0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "FlagSpawn",
+          "__guid": "78e0e634-928d-40de-919b-9b9ef36ef79f",
+          "Team": "Red"
+        }
+      ]
+    },
+    {
+      "__guid": "b51e9edc-78ed-4d31-9522-942e35788811",
+      "Flags": 0,
+      "Name": "Flag Spawn (1)",
+      "Position": "0,1536,-136",
+      "Rotation": "0,0,-0.7071067,0.7071068",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "FlagSpawn",
+          "__guid": "149654c9-1dcd-4bb3-a5f8-c0bf52b37037",
+          "Team": "Blue"
+        }
+      ]
+    },
+    {
+      "__guid": "e82b1589-91b3-4f1d-b5b7-9fb26722a231",
+      "Flags": 0,
+      "Name": "Box",
+      "Position": "-148,912,24.00037",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "29554a84-03c2-4315-a74d-b9f2d667c6bd",
+          "Collision": "Hull",
+          "Color": "1,1,1,1",
+          "HideInGame": true,
+          "IsTrigger": true,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-1796,-16,952",
+              "1796,-16,952",
+              "1796,16,952",
+              "-1796,16,952",
+              "-1796,16,-952",
+              "1796,16,-952",
+              "1796,-16,-952",
+              "-1796,-16,-952"
+            ],
+            "TextureCoord": [
+              "28.0625,0.25",
+              "-28.0625,-14.875",
+              "28.0625,-0.25",
+              "-0.25,-14.875",
+              "-28.0625,-0.25",
+              "-28.0625,-14.875",
+              "-28.0625,0.25",
+              "-0.25,-14.875",
+              "28.0625,-0.25",
+              "28.0625,14.875",
+              "28.0625,0.25",
+              "0.25,14.875",
+              "-28.0625,0.25",
+              "28.0625,14.875",
+              "-28.0625,-0.25",
+              "0.25,14.875",
+              "0.25,-14.875",
+              "-28.0625,14.875",
+              "-0.25,14.875",
+              "28.0625,-14.875",
+              "-0.25,14.875",
+              "28.0625,-14.875",
+              "0.25,-14.875",
+              "-28.0625,14.875"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "80,64",
+              "80,64",
+              "64,96.00146",
+              "192,96.00146",
+              "176,96.00146",
+              "80,96.00146"
+            ],
+            "MaterialIndex": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/tools/toolstrigger.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "CTFTrigger",
+          "__guid": "80ded606-0066-4304-89ae-7a49369abf06",
+          "Team": "Red"
+        }
+      ]
+    },
+    {
+      "__guid": "a7f34bdc-45b8-4313-b546-438099c115cf",
+      "Flags": 0,
+      "Name": "Box (1)",
+      "Position": "-148,-864,24.00037",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MeshComponent",
+          "__guid": "f18fc71f-8b35-497d-a8e3-e5d176f8c50f",
+          "Collision": "Hull",
+          "Color": "1,1,1,1",
+          "HideInGame": true,
+          "IsTrigger": true,
+          "Mesh": {
+            "Topology": "H4sIAAAAAAAACl2QCQ7CMAwEp4Qj3NBy/f\u002BlaMRGsohUVbFn1\u002Bt04ANs\u002BZ0VsM69AwfgBFyAKZ9MPXdgk3qLnsI\u002BUm/h/me9i2ZXfFvYOazafTJN0XRgKZmPyWtfXvYVL73PZRd52WdYPa7xtC8veys7u6t17/7t6Tn0ZtFjvIXZR895zjKjPWf4NiOrGt\u002BivpXZ3XnozaOndVn9vvVkkTjEAQAA",
+            "Positions": [
+              "-1796,-16,952",
+              "1796,-16,952",
+              "1796,16,952",
+              "-1796,16,952",
+              "-1796,16,-952",
+              "1796,16,-952",
+              "1796,-16,-952",
+              "-1796,-16,-952"
+            ],
+            "TextureCoord": [
+              "28.0625,0.25",
+              "-28.0625,-14.875",
+              "28.0625,-0.25",
+              "-0.25,-14.875",
+              "-28.0625,-0.25",
+              "-28.0625,-14.875",
+              "-28.0625,0.25",
+              "-0.25,-14.875",
+              "28.0625,-0.25",
+              "28.0625,14.875",
+              "28.0625,0.25",
+              "0.25,14.875",
+              "-28.0625,0.25",
+              "28.0625,14.875",
+              "-28.0625,-0.25",
+              "0.25,14.875",
+              "0.25,-14.875",
+              "-28.0625,14.875",
+              "-0.25,14.875",
+              "28.0625,-14.875",
+              "-0.25,14.875",
+              "28.0625,-14.875",
+              "0.25,-14.875",
+              "-28.0625,14.875"
+            ],
+            "TextureUAxis": [
+              "1,0,0",
+              "1,0,-0",
+              "0,-1,0",
+              "0,1,0",
+              "-1,0,0",
+              "1,-0,0"
+            ],
+            "TextureVAxis": [
+              "0,-1,0",
+              "0,-1,0",
+              "0,0,-1",
+              "-0,0,-1",
+              "0,0,-1",
+              "-0,0,-1"
+            ],
+            "TextureScale": [
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25",
+              "0.25,0.25"
+            ],
+            "TextureOffset": [
+              "80,128",
+              "80,128",
+              "128,96.00146",
+              "128,96.00146",
+              "176,96.00146",
+              "80,96.00146"
+            ],
+            "MaterialIndex": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "EdgeFlags": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "Materials": [
+              "materials/tools/toolstrigger.vmat"
+            ]
+          },
+          "SmoothingAngle": 40,
+          "Static": true,
+          "SurfaceVelocity": "0,0,0"
+        },
+        {
+          "__type": "CTFTrigger",
+          "__guid": "8282885d-a53b-410b-ad2a-ec3d055698ce",
+          "Team": "Blue"
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "Metadata": {
+      "Title": "Fortwars Dev",
+      "Author": "Ape Tavern"
+    },
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": "Fortwars Dev",
+  "Description": null,
+  "__references": [
+    "facepunch.glass_c#70691"
+  ],
+  "__version": 2
+}

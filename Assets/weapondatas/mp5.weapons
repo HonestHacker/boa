@@ -1,0 +1,9 @@
+{
+  "Name": "MP5",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/weapons/dead4left_mp5.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

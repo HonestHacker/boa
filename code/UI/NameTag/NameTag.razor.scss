@@ -1,0 +1,23 @@
+NameTag {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	gap: 16px;
+
+	.title {
+		font-size: 42px;
+		font-family: 'IBM Plex Mono';
+		color: #fff;
+	}
+
+	img {
+		border-radius: 4px;
+		width: 52px;
+		height: 52px;
+	}
+}

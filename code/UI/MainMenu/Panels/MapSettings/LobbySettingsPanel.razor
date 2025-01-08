@@ -1,0 +1,355 @@
+@using Sandbox;
+@using Sandbox.UI;
+@using System.Threading.Tasks;
+@using System.Text.Json;
+@using System;
+@inherits Panel
+@attribute [StyleSheet]
+
+<root>
+	<div class="container">
+		@if ( SelectedMap is not null )
+		{
+            <div class="background"/>
+
+			<div class="thumb">
+				<div class="img" style="background-image: url( @SelectedMap?.Thumb?.ResourcePath )"></div>
+			</div>
+
+			@if ( !string.IsNullOrWhiteSpace( SelectedMap.PackageIndent ) && GetPackage( SelectedMap.PackageIndent ).Result is not null )
+			{
+				var pkg = GetPackage( SelectedMap.PackageIndent ).Result;
+				<div class="title link" onclick=@( () => Game.Overlay.ShowPackageModal( SelectedMap.PackageIndent ) )>@SelectedMap?.MapName</div>
+				<div class="author link" onclick=@( () => Game.Overlay.ShowOrganizationModal( pkg?.Org ) )>By: @SelectedMap?.Author</div>
+			}
+			else
+			{
+				<div class="title">@SelectedMap?.MapName</div>
+				<div class="author">By: @SelectedMap?.Author</div>
+			}
+
+			@if ( !string.IsNullOrWhiteSpace( SelectedMap?.MapDescription ) )
+			{
+				<div class="description" style="justify-content: center; align-items: center;">
+					<div style="font-size: 24px;" style="justify-content: center; align-items: center; text-align: center;">@SelectedMap?.MapDescription</div>
+				</div>
+			}
+			else
+			{
+				<div style="height: 100%; width: 100%; margin: 12px;"></div>
+			}
+
+			<div class="settings">
+
+@* 				 <div class="setting">
+				 	<div class="label">Classic Props</div>
+				 	<SwitchControl Value:bind="@ClassicModels" />
+				 </div> *@
+
+				<div class="setting">
+					<div class="label">Privacy Settings</div>
+					<DropDown @ref="LocalDropDown" style="width: 100%; flex-shrink: 1; align-items: center; justify-content: center;" ValueChanged=@OnValueChanged />
+				</div>
+
+				<div class="setting">
+					<div class="label">Players to Start</div>
+					<TextEntry Value:bind="@PlayersToStart" Numeric=@true max=64 min=0 />
+				</div>
+
+				<div class="setting">
+					<div class="label">Max Players</div>
+					<SliderControl Value:bind="@MaxPlayers" max=64 />
+					<div class="value">@MaxPlayers</div>
+				</div>
+
+                <div class="setting">
+					<div class="label">Wood Props</div>
+					<SliderControl Value:bind="@WoodProps" max=500 />
+					<div class="value">@WoodProps</div>
+				</div>
+
+				<div class="setting">
+					<div class="label">Metal Props</div>
+					<SliderControl Value:bind="@MetalProps" max=500 />
+					<div class="value">@MetalProps</div>
+				</div>
+
+				<div class="setting">
+					<div class="label">Steel Props</div>
+					<SliderControl Value:bind="@SteelProps" max=500 />
+					<div class="value">@SteelProps</div>
+				</div>
+
+			</div>
+
+			<div class="play-button"  onclick=@( () => LoadMapInfo( SelectedMap ) )>Play</div>
+		}
+		else if ( SelectedPackage is not null )
+		{
+            <div class="background" />
+
+			<div class="thumb">
+				<div class="img" style="background-image: url( @SelectedPackage?.Thumb )"></div>
+			</div>
+
+			<div class="title link" onclick=@( () => Game.Overlay.ShowPackageModal( SelectedPackage?.FullIdent ) )>@SelectedPackage?.Title</div>
+			<div class="author link" onclick=@( () => Game.Overlay.ShowOrganizationModal( SelectedPackage?.Org ) )>By: @SelectedPackage?.Org.Title</div>
+
+			@if ( !string.IsNullOrWhiteSpace( SelectedPackage?.Summary ) )
+			{
+				<div class="description">
+					<div>@SelectedPackage.Summary</div>
+				</div>
+			}
+			else
+			{
+				<div style="height: 100%; width: 100%; margin: 12px;"></div>
+			}
+
+			<div class="settings">
+
+				<div class="setting">
+					<div class="label">Privacy Settings</div>
+					<DropDown @ref="LocalDropDown" style="width: 100%; flex-shrink: 1; align-items: center; justify-content: center;" ValueChanged=@OnValueChanged />
+				</div>
+
+				<div class="setting">
+					<div class="label">Players to Start</div>
+					<TextEntry Value:bind="@PlayersToStart" Numeric=@true max=64 min=0 />
+				</div>
+
+
+				<div class="setting">
+					<div class="label">Max Players</div>
+					<SliderControl Value:bind="@MaxPlayers" max=64 />
+					<div class="value">@MaxPlayers</div>
+				</div>
+
+				
+                <div class="setting">
+					<div class="label">Wood Props</div>
+					<SliderControl Value:bind="@WoodProps" max=500 />
+					<div class="value">@WoodProps</div>
+				</div>
+
+				<div class="setting">
+					<div class="label">Metal Props</div>
+					<SliderControl Value:bind="@MetalProps" max=500 />
+					<div class="value">@MetalProps</div>
+				</div>
+
+				<div class="setting">
+					<div class="label">Steel Props</div>
+					<SliderControl Value:bind="@SteelProps" max=500 />
+					<div class="value">@SteelProps</div>
+				</div>
+			
+			</div>
+
+			<div class="play-button" onclick=@( () => LoadPackage() )>Play</div>
+		}
+	</div>
+</root>
+
+@code
+{
+	public Package SelectedPackage { get; set; }
+	public MapInfo SelectedMap { get; set; }
+	[Change( nameof( OnValueMapChange ) )] private bool ClassicModels { get; set; } = true;
+	[Change( nameof( OnValueMapChange ) )] private int MetalProps { get; set; } = 30;
+	[Change( nameof( OnValueMapChange ) )] private int WoodProps { get; set; } = 60;
+	[Change( nameof( OnValueMapChange ) )] private int SteelProps { get; set; } = 15;
+	[Change( nameof( OnValueMapChange ) )] private int MaxPlayers { get; set; } = 64;
+	[Change( nameof( OnValueMapChange ) )] private int PlayersToStart { get; set; } = 1;
+
+	public DropDown CloudDropDown;
+	public DropDown LocalDropDown;
+
+	public enum LobbyPrivacy
+	{
+		Public,
+		FriendsOnly,
+		Private
+	}
+
+	public async void LoadPackage()
+	{
+		if ( SelectedPackage is null )
+			return;
+
+		Log.Info( $"Loading package {SelectedPackage?.FullIdent}" );
+
+		//I have to fetch it again?
+		var pkg = await Package.Fetch( SelectedPackage?.FullIdent, false );
+
+		if ( pkg is null )
+			return;
+
+		await pkg?.MountAsync();
+
+		if ( pkg?.GetMeta<string>( "PrimaryAsset" ).EndsWith( ".scene" ) ?? false )
+		{
+			var sceneFile = pkg?.GetMeta<SceneFile>( "PrimaryAsset" );
+
+			if ( sceneFile is null )
+			{
+				Scene?.LoadFromFile( "scenes/easter.scene" );
+				return;
+			}
+
+			Scene?.Load( sceneFile );
+		}
+		else if ( pkg?.GetMeta<string>( "PrimaryAsset" )?.EndsWith( ".vmap" ) ?? false )
+		{
+			LaunchArguments.Map = pkg?.FullIdent;
+
+			Scene?.LoadFromFile( "scenes/mapselect.scene" );
+		}
+	}
+
+	public async Task<Package> GetPackage( string ident )
+	{
+		var pkg = await Package.Fetch( ident, false );
+
+		if ( pkg is null )
+			return null;
+
+		return pkg;
+	}
+
+	public void LoadMapInfo( MapInfo map )
+	{
+		if ( map is null )
+			return;
+
+		if ( map.SceneMapEnabled )
+		{
+			LoadSceneMap( map );
+			return;
+		}
+
+		var scene = map.Scene;
+
+		if ( scene is null )
+			return;
+
+		Scene?.Load( scene );
+	}
+
+	public async void LoadSceneMap( MapInfo mapInfo )
+	{
+		var pkg = await Package.Fetch( mapInfo.PackageIndent, false );
+
+		if ( pkg is null )
+			return;
+
+		await pkg?.MountAsync();
+
+		if ( pkg?.GetMeta<string>( "PrimaryAsset" ).EndsWith( ".scene" ) ?? false )
+		{
+			var sceneFile = pkg?.GetMeta<SceneFile>( "PrimaryAsset" );
+
+			if ( sceneFile is null )
+			{
+				Scene?.LoadFromFile( "scenes/easter.scene" );
+				return;
+			}
+
+			var mapSystem = Scene?.GetAll<MapLoadingSystem>()?.FirstOrDefault();
+
+			if ( mapSystem is not null && sceneFile is not null && mapInfo.AdditiveSceneMap is not null )
+				mapSystem.LoadAdditiveScene( sceneFile, mapInfo.AdditiveSceneMap );
+			else if ( mapSystem is not null && sceneFile is not null )
+				Scene?.Load( sceneFile );
+		}
+	}
+
+	void OnValueMapChange()
+	{
+		var lobbySettings = new LobbySettings 
+		{ 
+			ClassicModels = ClassicModels, 
+			SteelProps = SteelProps,
+			WoodProps = WoodProps,
+			MetalProps = MetalProps,
+			MaxPlayers = MaxPlayers, 
+			PlayersToStart = PlayersToStart 
+		};
+
+		if ( LocalDropDown is not null )
+		{
+			lobbySettings.Privacy = (LobbyPrivacy)LocalDropDown.Selected.Value;
+		}
+		else if ( CloudDropDown is not null )
+		{
+			lobbySettings.Privacy = (LobbyPrivacy)CloudDropDown.Selected.Value;
+		}
+
+		Log.Info( JsonSerializer.Serialize( lobbySettings ) );
+
+		LobbySettings.Save( lobbySettings );
+	}
+
+	protected override void OnAfterTreeRender( bool firstTime )
+	{
+		if ( firstTime )
+		{
+			if ( CloudDropDown is not null )
+			{
+				CloudDropDown.Options = new()
+				{
+					new Option( "FriendsOnly", LobbyPrivacy.FriendsOnly ),
+					new Option( "Public", LobbyPrivacy.Public ),
+					new Option( "Private", LobbyPrivacy.Private ),
+				};
+
+				CloudDropDown.Selected = CloudDropDown.Options.FirstOrDefault( x => x.Value.Equals( LobbyPrivacy.Public ) );
+			}
+
+			if ( LocalDropDown is not null )
+			{
+				LocalDropDown.Options = new()
+				{
+					new Option( "FriendsOnly", LobbyPrivacy.FriendsOnly ),
+					new Option( "Public", LobbyPrivacy.Public ),
+					new Option( "Private", LobbyPrivacy.Private ),
+				};
+
+				LocalDropDown.Selected = LocalDropDown.Options.FirstOrDefault( x => x.Value.Equals( LobbyPrivacy.Public ) );
+			}
+		}
+
+		base.OnAfterTreeRender( firstTime );
+	}
+
+	void OnValueChanged( string String )
+	{
+		var lobbySettings = new LobbySettings 
+		{ 
+			ClassicModels = ClassicModels, 
+			SteelProps = SteelProps,
+			WoodProps = WoodProps,
+			MetalProps = MetalProps,
+			MaxPlayers = MaxPlayers, 
+			PlayersToStart = PlayersToStart 
+		};
+
+		if ( LocalDropDown is not null )
+		{
+			lobbySettings.Privacy = (LobbyPrivacy)LocalDropDown.Selected.Value;
+		}
+		else if ( CloudDropDown is not null )
+		{
+			lobbySettings.Privacy = (LobbyPrivacy)CloudDropDown.Selected.Value;
+		}
+
+		Log.Info( JsonSerializer.Serialize( lobbySettings ) );
+
+		LobbySettings.Save( lobbySettings );
+	}
+
+	protected override int BuildHash()
+	{
+		return System.HashCode.Combine( SelectedPackage, SelectedMap, ClassicModels );
+	}
+}
