@@ -204,11 +204,12 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 			if ( !IsCrouching )
 				return true;
 
-			var tr = Scene.Trace.Ray( shrimpleCharacterController.WorldPosition, shrimpleCharacterController.WorldPosition + Vector3.Up * 64 )
+			var tr = Scene.Trace.Ray( shrimpleCharacterController.WorldPosition, shrimpleCharacterController.WorldPosition + Vector3.Up * 40 )
 				.IgnoreGameObject( GameObject )
 				.Run();
 
-			Log.Info( tr.ToString() );
+			if (tr.Hit)
+				Log.Info( tr.GameObject.ToString() );
 
 			return !tr.Hit;
 		}
@@ -311,7 +312,7 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 
 			// Custom air movement.
 			var airMove = wishMove * AIR_MOVE_ACCEL * Time.Delta;
-			var maxSpeed = MathF.Max( wishSpeed, flatVel.Length );
+			var maxSpeed = MathF.Min(MathF.Max( wishSpeed, flatVel.Length ), RunSpeed * 1.7f);
 
 			flatVel = (flatVel + airMove).ClampLength( 0f, maxSpeed );
 

@@ -1,0 +1,9 @@
+{
+  "Name": "RPG",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/weapons/rpg.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

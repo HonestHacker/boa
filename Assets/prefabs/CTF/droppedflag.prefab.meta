@@ -1,0 +1,20 @@
+{
+  "publish": {
+    "Enabled": true,
+    "ProjectConfig": {
+      "Title": "BoA Intelligence",
+      "Type": "prefab",
+      "Org": "projectuw",
+      "Ident": "droppedflag",
+      "Schema": 0,
+      "IncludeSourceFiles": true,
+      "Resources": null,
+      "PackageReferences": null,
+      "EditorReferences": null,
+      "IsWhitelistDisabled": false,
+      "Metadata": {
+        "SingleAssetSource": "prefabs/ctf/droppedflag.prefab"
+      }
+    }
+  }
+}

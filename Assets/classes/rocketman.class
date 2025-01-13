@@ -1,0 +1,18 @@
+{
+  "WeaponData": "weapondatas/rpg.weapons",
+  "ClassName": "Rocketman",
+  "ClassDescription": "A fan of violating safety rules and causing awe in the ranks of a rival from the sky, the Rocketman has mastered the special art of jumping on rockets, contrary to common sense.",
+  "WalkSpeed": 79,
+  "RunSpeed": 250,
+  "Health": 200,
+  "Hidden": false,
+  "Order": 0,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/shotgun.weapons",
+  "ClassModelEnabled": false,
+  "ClassModel": null,
+  "HoldType": "None",
+  "Offset": "0,0,0",
+  "__references": [],
+  "__version": 0
+}

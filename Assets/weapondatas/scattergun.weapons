@@ -1,0 +1,9 @@
+{
+  "Name": "Scattergun",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/weapons/scattergun.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

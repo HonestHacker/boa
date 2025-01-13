@@ -615,9 +615,9 @@
     }
   ],
   "SceneProperties": {
-    "FixedUpdateFrequency": 50,
+    "FixedUpdateFrequency": 64,
     "MaxFixedUpdates": 5,
-    "NetworkFrequency": 30,
+    "NetworkFrequency": 64,
     "NetworkInterpolation": true,
     "PhysicsSubSteps": 1,
     "ThreadedAnimation": true,

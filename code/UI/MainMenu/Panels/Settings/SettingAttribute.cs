@@ -1,4 +1,5 @@
 using System;
+using Sandbox;
 
 [AttributeUsage(AttributeTargets.Property)]
 public sealed class SettingAttribute : Attribute
@@ -6,7 +7,7 @@ public sealed class SettingAttribute : Attribute
     public SettingType Type { get; set; }
     public object Value { get; set; }
 	public string Title { get; set; } = "You forgot to set the title";
-	public ConVar ConVar { get; set; }
+	public ConVarAttribute ConVar { get; set; }
 
     public T GetValue<T>()
     {

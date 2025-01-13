@@ -1,0 +1,18 @@
+{
+  "WeaponData": null,
+  "ClassName": null,
+  "ClassDescription": "",
+  "WalkSpeed": 300,
+  "RunSpeed": 450,
+  "Health": 100,
+  "Hidden": true,
+  "Order": 0,
+  "SecondaryEnabled": false,
+  "SecondaryWeaponData": null,
+  "ClassModelEnabled": false,
+  "ClassModel": null,
+  "HoldType": "None",
+  "Offset": "0,0,0",
+  "__references": [],
+  "__version": 0
+}

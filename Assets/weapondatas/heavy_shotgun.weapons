@@ -1,0 +1,9 @@
+{
+  "Name": "Heavy Shotgun",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "prefab": "prefabs/weapons/heavy_shotgun.prefab"
+  },
+  "__references": [],
+  "__version": 0
+}

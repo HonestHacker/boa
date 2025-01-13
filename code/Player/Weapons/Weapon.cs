@@ -176,6 +176,10 @@ public class Weapon : Item, IGameEventHandler<OnReloadEvent>, IGameEventHandler<
 	[Property, Feature( "Recoil" )] public Vector3 MinRecoilValues { get; set; }
 	[Property, Feature( "Recoil" )] public Vector3 MaxRecoilValues { get; set; }
 
+	[Property, FeatureEnabled( "Projectiles" )] public bool UsesProjectiles { get; set; }
+	[Property, Feature( "Projectiles" )] public GameObject Projectile;
+	[Property, Feature( "Projectiles" )] public GameObject ProjectileSpawnPoint;
+
 	[Property] public float PunchDecreaseRate { get; set; } = 0.05f;
 	[Property] public float PunchFireIncrease { get; set; } = 0.1f;
 
@@ -285,7 +289,18 @@ public class Weapon : Item, IGameEventHandler<OnReloadEvent>, IGameEventHandler<
 
 		if ( !local.IsValid() || !cam.IsValid() )
 			return;
+		
+		if (UsesProjectiles)
+		{
+			var projectile = Projectile.Clone();
+			projectile.WorldPosition = ProjectileSpawnPoint.WorldPosition;
+			projectile.WorldRotation = ProjectileSpawnPoint.WorldRotation;
+			if (projectile.Components.TryGet<Projectile>(out var pr))
+				pr.Owner = local.GameObject;
+			projectile.NetworkSpawn();
 
+			return;
+		}
 		var ray = cam.ScreenNormalToRay( 0.5f );
 
 		ray.Forward += Vector3.Random * (MinSpread.LerpTo( MaxSpread, FirePunch ));

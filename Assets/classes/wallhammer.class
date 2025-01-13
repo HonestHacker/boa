@@ -1,0 +1,18 @@
+{
+  "WeaponData": "weapondatas/heavy_shotgun.weapons",
+  "ClassName": "Wallhammer",
+  "ClassDescription": "The living wall",
+  "WalkSpeed": 79,
+  "RunSpeed": 240,
+  "Health": 250,
+  "Hidden": false,
+  "Order": 0,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/shotgun.weapons",
+  "ClassModelEnabled": false,
+  "ClassModel": null,
+  "HoldType": "None",
+  "Offset": "0,0,0",
+  "__references": [],
+  "__version": 0
+}

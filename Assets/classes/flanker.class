@@ -1,0 +1,18 @@
+{
+  "WeaponData": "weapondatas/scattergun.weapons",
+  "ClassName": "Flanker",
+  "ClassDescription": "Fast class",
+  "WalkSpeed": 132,
+  "RunSpeed": 400,
+  "Health": 125,
+  "Hidden": false,
+  "Order": 0,
+  "SecondaryEnabled": true,
+  "SecondaryWeaponData": "weapondatas/pistol.weapons",
+  "ClassModelEnabled": false,
+  "ClassModel": null,
+  "HoldType": "None",
+  "Offset": "0,0,0",
+  "__references": [],
+  "__version": 0
+}

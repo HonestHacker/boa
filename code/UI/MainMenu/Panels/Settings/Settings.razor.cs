@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Sandbox.UI;
+using Sandbox;
 
 public partial class Settings : Panel
 {
@@ -48,7 +49,7 @@ public partial class Settings : Panel
 
 					setting.Value = value;
 
-					var conVar = p.GetCustomAttribute<ConVar>();
+					var conVar = p.GetCustomAttribute<ConVarAttribute>();
 
 					if (conVar is not null)
 					{

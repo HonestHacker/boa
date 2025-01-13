@@ -1,0 +1,9 @@
+{
+  "Name": "Hand Grenade",
+  "WeaponPrefab": {
+    "_type": "gameobject",
+    "go": "be5194cf-0d42-4070-82ce-745c46927602"
+  },
+  "__references": [],
+  "__version": 0
+}
