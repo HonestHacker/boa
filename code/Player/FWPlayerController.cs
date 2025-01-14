@@ -11,6 +11,7 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 	[Property, Category( "References" )] public ShrimpleCharacterController.ShrimpleCharacterController shrimpleCharacterController { get; set; }
 	[Property, Category( "References" ), Sync] public CitizenAnimationHelper AnimHelper { get; set; }
 	[Property, Category( "References" )] public GameObject Eye { get; set; }
+	[Property, Sync, Category( "References" )] public GameObject Collider { get; set; }
 	[Property, Sync, Category( "References" )] public ModelRenderer HoldRenderer { get; set; }
 	[Property, Sync, Category( "References" )] public Inventory Inventory { get; set; }
 
@@ -206,6 +207,7 @@ IGameEventHandler<DeathEvent>, IGameEventHandler<OnPhysgunGrabChange>
 
 			var tr = Scene.Trace.Ray( shrimpleCharacterController.WorldPosition, shrimpleCharacterController.WorldPosition + Vector3.Up * 40 )
 				.IgnoreGameObject( GameObject )
+				.IgnoreGameObject( Collider )
 				.Run();
 
 			if (tr.Hit)

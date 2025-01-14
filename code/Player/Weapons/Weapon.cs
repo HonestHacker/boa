@@ -296,7 +296,7 @@ public class Weapon : Item, IGameEventHandler<OnReloadEvent>, IGameEventHandler<
 			projectile.WorldPosition = ProjectileSpawnPoint.WorldPosition;
 			projectile.WorldRotation = ProjectileSpawnPoint.WorldRotation;
 			if (projectile.Components.TryGet<Projectile>(out var pr))
-				pr.Owner = local.GameObject;
+				pr.Owner = local;
 			projectile.NetworkSpawn();
 
 			return;

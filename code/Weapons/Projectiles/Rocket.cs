@@ -2,11 +2,15 @@ using Sandbox;
 
 public sealed class Rocket : Projectile, Component.ICollisionListener
 {
+
 	[Property] public float Speed { get; set; }
 	[Sync, Property] public Rigidbody Rigidbody { get; set; }
+	
 
 	protected override void OnAwake()
 	{
+		if ( IsProxy )
+			return;
 		Rigidbody.ApplyForce(WorldTransform.Forward * Speed);
 	}
 	protected override void OnFixedUpdate()
@@ -18,6 +22,12 @@ public sealed class Rocket : Projectile, Component.ICollisionListener
 	public void OnCollisionStart( Collision collision )
 	{
 		if ( IsProxy )
+		{
+			return;
+		}
+		Log.Info( collision.Other.GameObject.ToString() );
+		
+		if ( collision.Other.GameObject != null && collision.Other.GameObject == Owner.Collider )
 		{
 			return;
 		}

@@ -25,7 +25,7 @@ public sealed class Explosion : Component
 				playerController.HealthComponent.TakeDamage(Owner, damage);
 				var punch = (go.WorldPosition - WorldPosition).Normal * PunchForce;
 				if ( playerController.IsCrouching )
-					punch *= 2;
+					punch *= 1.5f;
 				Log.Info( $"Rocket damage: {damage}; distance: {WorldPosition.Distance( go.WorldPosition )}; Punch {punch}" );
 				playerController.shrimpleCharacterController.Punch(punch);
 			}
