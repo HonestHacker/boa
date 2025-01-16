@@ -1,0 +1,338 @@
+{
+  "__guid": "6942621f-5d41-44bd-9913-b2b657e4c656",
+  "GameObjects": [
+    {
+      "__guid": "54803734-36bf-4cc6-afd2-0ea9cafafa69",
+      "Flags": 0,
+      "Name": "Map",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.MapInstance",
+          "__guid": "a97ebdc4-7e6a-4c7e-b18c-782bddc79660",
+          "__version": 1,
+          "EnableCollision": true,
+          "MapName": "maps/boa_headquarters.vmap",
+          "NoOrigin": false,
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "OnMapLoaded": null,
+          "OnMapUnloaded": null,
+          "UseMapFromLaunch": false
+        }
+      ],
+      "Children": []
+    },
+    {
+      "__guid": "730461c9-818e-4a73-9c92-b820d5b3cfd0",
+      "Flags": 0,
+      "Name": "Red Spawns",
+      "Position": "-1991.777,488.3951,385.1948",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "58be8851-d190-418c-adfc-718564483f4f",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "0.0001220703,0,-65.19476",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "0e70d7dc-2e70-47ff-9189-fcea5468744d",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "67173923-f386-4ade-bfa5-35a84a0cff13",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "39.77722,0.0001220703,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "308fe3ae-d6b0-4291-a8c6-068afaed38d4",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "0a4cabd6-902d-4485-9076-f2163349e63e",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-24.22278,0.0002441406,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "b9363f8c-d2ab-45d8-9bbd-779cf3f2ce26",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "7ccf6096-d285-4ed4-b023-7f9ca5c50c41",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-56.22278,0.0003662109,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "cbfbb27e-f9d8-4b18-8d10-f82dcb2a14e2",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Red"
+            }
+          ]
+        },
+        {
+          "__guid": "d80b1c54-b061-4f41-ac0a-19210549bac5",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-88.22302,0.0003051758,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "f2142d04-099f-4b9e-852d-f6d7f60c199e",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Red"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "89ebbb8d-bd89-4d86-8218-98d8c24eaa28",
+      "Flags": 0,
+      "Name": "Blue Spawns",
+      "Position": "2233.557,-618.5792,385.1948",
+      "Enabled": true,
+      "Children": [
+        {
+          "__guid": "663bfe37-97a5-4c54-87a8-f7cabd604f32",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "0.0001220703,0,-65.19476",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "7bdf42f3-6c9d-4636-8e10-c3cacaf1388b",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "af934267-79da-4ed4-951b-083d9d4fa7ad",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "39.77722,0.0001220703,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "ea3530b4-c183-4e58-acab-407513a8749d",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "f000367d-1d2e-485b-8151-cce6776ddf97",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-24.22278,0.0002441406,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "07b33289-cc11-4959-9dd5-76af72b6db07",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "c8e0f006-2c35-4177-ba5e-9ce7b0b354ff",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-56.22278,0.0003662109,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "9b189f79-ef4e-4e20-803a-adf27570f4f5",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Blue"
+            }
+          ]
+        },
+        {
+          "__guid": "9a327eba-78c1-480d-9ad9-5805ce3064e1",
+          "Flags": 0,
+          "Name": "Spawn",
+          "Position": "-88.22302,0.0003051758,-65.19473",
+          "Rotation": "0,-0,-0.7071068,0.7071068",
+          "Enabled": true,
+          "Components": [
+            {
+              "__type": "TeamSpawnPoint",
+              "__guid": "bfae4776-20c3-4ceb-b007-ce2f9adecb6d",
+              "OnComponentDestroy": null,
+              "OnComponentDisabled": null,
+              "OnComponentEnabled": null,
+              "OnComponentFixedUpdate": null,
+              "OnComponentStart": null,
+              "OnComponentUpdate": null,
+              "Team": "Blue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__guid": "6f893e86-1770-408c-9a41-2e3e74e73f4e",
+      "Flags": 0,
+      "Name": "Sun",
+      "Rotation": "-0.09904574,0.3696438,-0.2391176,0.8923992",
+      "Tags": "light_directional,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.DirectionalLight",
+          "__guid": "63a25f40-4604-4f5c-9328-090bbc662d0d",
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.76078,0.77255,0.8,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Shadows": true,
+          "SkyColor": "0,0,0,0.55"
+        }
+      ]
+    },
+    {
+      "__guid": "06bc99f7-b6c7-4377-9383-1c46c37e871f",
+      "Flags": 0,
+      "Name": "Point Light",
+      "Position": "-1944.62,517.1489,359.0889",
+      "Tags": "light_point,light",
+      "Enabled": true,
+      "Components": [
+        {
+          "__type": "Sandbox.PointLight",
+          "__guid": "42f691ce-3b1c-4f18-987c-ecbf92008082",
+          "Attenuation": 1,
+          "FogMode": "Enabled",
+          "FogStrength": 1,
+          "LightColor": "0.91373,0.98039,1,1",
+          "OnComponentDestroy": null,
+          "OnComponentDisabled": null,
+          "OnComponentEnabled": null,
+          "OnComponentFixedUpdate": null,
+          "OnComponentStart": null,
+          "OnComponentUpdate": null,
+          "Radius": 400,
+          "Shadows": true
+        }
+      ]
+    }
+  ],
+  "SceneProperties": {
+    "FixedUpdateFrequency": 50,
+    "MaxFixedUpdates": 5,
+    "NetworkFrequency": 30,
+    "NetworkInterpolation": true,
+    "PhysicsSubSteps": 1,
+    "ThreadedAnimation": true,
+    "TimeScale": 1,
+    "UseFixedUpdate": true,
+    "Metadata": {},
+    "NavMesh": {
+      "Enabled": false,
+      "IncludeStaticBodies": true,
+      "IncludeKeyframedBodies": true,
+      "EditorAutoUpdate": true,
+      "AgentHeight": 64,
+      "AgentRadius": 16,
+      "AgentStepSize": 18,
+      "AgentMaxSlope": 40,
+      "ExcludedBodies": "",
+      "IncludedBodies": ""
+    }
+  },
+  "ResourceVersion": 2,
+  "Title": null,
+  "Description": null,
+  "__references": [],
+  "__version": 2
+}

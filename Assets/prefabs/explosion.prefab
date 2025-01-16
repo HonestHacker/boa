@@ -274,6 +274,54 @@
         "OnComponentStart": null,
         "OnComponentUpdate": null,
         "Time": 1
+      },
+      {
+        "__type": "Sandbox.SoundPointComponent",
+        "__guid": "e5010886-31ce-4a77-8214-85ac5672f88f",
+        "Distance": 512,
+        "DistanceAttenuation": false,
+        "DistanceAttenuationOverride": false,
+        "Falloff": [
+          {
+            "x": 0,
+            "y": 1,
+            "in": 3.1415927,
+            "out": -3.1415927,
+            "mode": "Mirrored"
+          },
+          {
+            "x": 1,
+            "y": 0,
+            "in": 0,
+            "out": 0,
+            "mode": "Mirrored"
+          }
+        ],
+        "Force2d": false,
+        "MaxRepeatTime": 1,
+        "MinRepeatTime": 1,
+        "Occlusion": false,
+        "OcclusionOverride": false,
+        "OcclusionRadius": 32,
+        "OnComponentDestroy": null,
+        "OnComponentDisabled": null,
+        "OnComponentEnabled": null,
+        "OnComponentFixedUpdate": null,
+        "OnComponentStart": null,
+        "OnComponentUpdate": null,
+        "Pitch": 1,
+        "PlayOnStart": true,
+        "ReflectionOverride": false,
+        "Reflections": false,
+        "Repeat": false,
+        "SoundEvent": "sound/explosion2.sound",
+        "SoundOverride": false,
+        "StopOnNew": false,
+        "TargetMixer": {
+          "Name": "unknown",
+          "Id": "00000000-0000-0000-0000-000000000000"
+        },
+        "Volume": 1
       }
     ],
     "Children": [],
@@ -307,6 +355,8 @@
   "MenuIcon": null,
   "DontBreakAsTemplate": false,
   "ResourceVersion": 1,
-  "__references": [],
+  "__references": [
+    "igrotronika.explosion2#50756"
+  ],
   "__version": 1
 }

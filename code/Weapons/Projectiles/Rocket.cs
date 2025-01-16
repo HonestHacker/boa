@@ -34,6 +34,8 @@ public sealed class Rocket : Projectile, Component.ICollisionListener
 		//Log.Info( $"{collider.GameObject}" );
 		Speed = 0;
 		var explo = ExplosionPrefab.Clone(WorldPosition);
+		var exploComponent = explo.GetComponent<Explosion>();
+		exploComponent.Owner = Owner.GameObject;
 		explo.NetworkSpawn();
 		GameObject.Destroy();
 	} 

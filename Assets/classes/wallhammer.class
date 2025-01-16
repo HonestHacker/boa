@@ -4,7 +4,7 @@
   "ClassDescription": "The living wall",
   "WalkSpeed": 79,
   "RunSpeed": 240,
-  "Health": 250,
+  "Health": 300,
   "Hidden": false,
   "Order": 0,
   "SecondaryEnabled": true,

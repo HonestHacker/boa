@@ -10,7 +10,9 @@
       "IncludeSourceFiles": false,
       "Resources": null,
       "PackageReferences": [],
-      "EditorReferences": [],
+      "EditorReferences": [
+        "agentab.night#31347"
+      ],
       "IsWhitelistDisabled": false,
       "Metadata": {
         "SingleAssetSource": "maps/boa_headquarters.vmap",

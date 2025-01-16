@@ -1,0 +1,16 @@
+{
+  "MapName": "boa_headquarters",
+  "MapDescription": "",
+  "FourTeams": false,
+  "Scene": "scenes/boa_headquarters.scene",
+  "Thumb": "textures/fw_dev.vtex",
+  "Author": "Ape Tavern",
+  "PackageIndent": "apetavern.fw_dev",
+  "Hidden": false,
+  "Order": 7,
+  "AvailableGamemodes": "CaptureTheFlag",
+  "SceneMapEnabled": false,
+  "AdditiveSceneMap": null,
+  "__references": [],
+  "__version": 0
+}

@@ -21,6 +21,12 @@
             "ClearFlags": "All",
             "FieldOfView": 90,
             "IsMainCamera": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Orthographic": false,
             "OrthographicHeight": 1204,
             "Priority": 1,
@@ -65,13 +71,25 @@
               }
             ],
             "Mode": "Blur",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Strength": 0.15,
             "Threshold": 0.5,
             "ThresholdWidth": 0
           },
           {
             "__type": "Sandbox.Highlight",
-            "__guid": "1e3d7818-d8dc-4fe3-8687-ddecdb81988c"
+            "__guid": "1e3d7818-d8dc-4fe3-8687-ddecdb81988c",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           },
           {
             "__type": "Sandbox.Tonemapping",
@@ -84,20 +102,41 @@
             "MaximumExposure": 2.65,
             "MinimumExposure": 1.7,
             "Mode": "Legacy",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Rate": 8.57
           },
           {
             "__type": "Sandbox.AmbientOcclusion",
             "__guid": "e73987d8-5502-4230-85fe-0a8dec1b5a37",
+            "__version": 1,
             "__enabled": false,
-            "FalloffDistance": 1,
-            "Intensity": 16,
+            "DenoiseMode": "Temporal",
+            "FalloffRange": 0.75,
+            "Intensity": 0.15,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Quality": "High",
-            "Radius": 32
+            "Radius": 128,
+            "ThinCompensation": 0
           },
           {
             "__type": "CameraController",
             "__guid": "a87fedec-7022-4732-bff4-a219c75b66e3",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Recoil": "-2,2,0.35",
             "ReturnSpeed": 1,
             "Snappiness": 20
@@ -108,6 +147,12 @@
             "Center": "0.5,0.5",
             "Color": "1,0.06047,0.06047,0",
             "Intensity": 0.49,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Roundness": 1,
             "Smoothness": 1
           }
@@ -146,6 +191,12 @@
             },
             "MapVotes": {},
             "MetalProps": 30,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "PlayerPrefab": {
               "_type": "gameobject",
               "prefab": "prefabs/player.prefab"
@@ -171,6 +222,12 @@
             "__type": "Sandbox.ScreenPanel",
             "__guid": "061bc0a1-34d3-46e2-bd81-1a20341e71c5",
             "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Opacity": 1,
             "Scale": 1,
             "ScaleStrategy": "ConsistentHeight",
@@ -180,12 +237,25 @@
             "__type": "HUD",
             "__guid": "9f2de297-1b36-475f-a258-f8adb383e300",
             "Crosshair": "textures/crosshairs/crosshair010.png",
-            "HitMarker": "textures/ui/hitmarker.png"
+            "HitMarker": "textures/ui/hitmarker.png",
+            "lastCrosshair": null,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           },
           {
             "__type": "PauseMenu",
             "__guid": "d665ea46-b2a1-47ce-8afd-d444cfcc5d37",
-            "MenuScene": "scenes/fortwarsmenu.scene"
+            "MenuScene": "scenes/fortwarsmenu.scene",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ],
         "Children": [
@@ -219,7 +289,13 @@
                     "Icon": "textures/emotes/emote_laugh.vtex",
                     "ChatMessage": "XD"
                   }
-                ]
+                ],
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null
               }
             ]
           },
@@ -232,7 +308,13 @@
             "Components": [
               {
                 "__type": "Chat",
-                "__guid": "2e086689-0c20-4c18-88db-16d4e2c508fd"
+                "__guid": "2e086689-0c20-4c18-88db-16d4e2c508fd",
+                "OnComponentDestroy": null,
+                "OnComponentDisabled": null,
+                "OnComponentEnabled": null,
+                "OnComponentFixedUpdate": null,
+                "OnComponentStart": null,
+                "OnComponentUpdate": null
               }
             ]
           }
@@ -248,6 +330,12 @@
             "__type": "Sandbox.ScreenPanel",
             "__guid": "148b37d5-a58d-438a-a259-be5a51efa876",
             "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Opacity": 1,
             "Scale": 1,
             "ScaleStrategy": "ConsistentHeight",
@@ -255,7 +343,13 @@
           },
           {
             "__type": "Sandbox.NavMarkerUI",
-            "__guid": "0135eb19-a9f0-479e-8b33-c9fc4b9a1753"
+            "__guid": "0135eb19-a9f0-479e-8b33-c9fc4b9a1753",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           }
         ]
       },
@@ -267,12 +361,24 @@
         "Components": [
           {
             "__type": "PopupHolder",
-            "__guid": "74995588-6d77-4829-aad4-3c76223d286c"
+            "__guid": "74995588-6d77-4829-aad4-3c76223d286c",
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null
           },
           {
             "__type": "Sandbox.ScreenPanel",
             "__guid": "d531fe1b-ab76-4cdb-ab41-8429cfc17771",
             "AutoScreenScale": true,
+            "OnComponentDestroy": null,
+            "OnComponentDisabled": null,
+            "OnComponentEnabled": null,
+            "OnComponentFixedUpdate": null,
+            "OnComponentStart": null,
+            "OnComponentUpdate": null,
             "Opacity": 1,
             "Scale": 1,
             "ScaleStrategy": "ConsistentHeight",
